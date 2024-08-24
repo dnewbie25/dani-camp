@@ -19,5 +19,5 @@ Payroll app created to track employees' payments throughout their entire contrac
 
 ### Link to Demo
 
-![Payroll Calculator](https://regal-chaja-a4a36e.netlify.app)
+[Payroll Calculator](https://regal-chaja-a4a36e.netlify.app)
 </details>

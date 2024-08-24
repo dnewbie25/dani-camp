@@ -12,7 +12,12 @@ Javascript projects and future improvements to those projects. These projects ar
 
 Payroll app created to track employees' payments throughout their entire contract time.
 
-### Live Preview
+### Preview
+
+![image](https://github.com/user-attachments/assets/5a22e15b-51eb-47cb-b374-143ad27cd859)
+
 
 ### Link to Demo
+
+[Payroll Calculator](https://regal-chaja-a4a36e.netlify.app)
 </details>

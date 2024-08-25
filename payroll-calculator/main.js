@@ -10,7 +10,15 @@ const lastDate = document.getElementById('lastDate');
 const submit = document.getElementById('submit');
 const table = document.getElementById('table');
 
+// Load employees from localStorage
 let employees = [];
+const employeesLoad = localStorage.getItem('employees');
+if (employeesLoad) {
+  employees = JSON.parse(employeesLoad);
+  employees.forEach(employee => {
+    updateTable(employee)
+  });
+}
 
 // every time the pages reloads it clears the form
 document.addEventListener('DOMContentLoaded', function(e) {
@@ -37,12 +45,13 @@ submit.addEventListener('click', function(e) {
     hoursWorked: hoursWorked.value,
     daysWorked: daysWorked(active.value,startDate.value,lastDate.value),
     startDate: startDate.value,
-    active: active.value,
+    active: active.value==='true'?true:false,
     lastDate: lastDate.value,
     daysActive: daysActive(active.value,startDate.value,lastDate.value)
   });
-
+  // update table and save to localstorage
   updateTable(employees[employees.length-1])
+  localStorage.setItem('employees', JSON.stringify(employees));
 });
 
 

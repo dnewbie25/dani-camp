@@ -9,6 +9,7 @@ const active = document.getElementById('active');
 const lastDate = document.getElementById('lastDate');
 const submit = document.getElementById('submit');
 const table = document.getElementById('table');
+const form = document.getElementsByTagName('form');
 
 // Load employees from localStorage
 let employees = [];
@@ -60,7 +61,12 @@ submit.addEventListener('click', function(e) {
     updateTable(employees[employees.length-1])
     localStorage.setItem('employees', JSON.stringify(employees));
   }catch(e){
-    console.log(e.message)
+    Array.from(form[0]).forEach(e=>{
+      if(!e.value){
+        e.style.borderColor = "red"
+      }
+    })
+    alert('')
   }
   // for(const key in employeeInfo.values){
   //   // try catch

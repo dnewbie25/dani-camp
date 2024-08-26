@@ -30,28 +30,53 @@ document.addEventListener('DOMContentLoaded', function(e) {
   hoursWorked.value = ""
   startDate.value = ""
   active.value = true
-  lastDate.value = ""
+  lastDate.value = new Date().toISOString().split('T')[0]
 });
 
 submit.addEventListener('click', function(e) {
   // adds the values to the employees array
   e.preventDefault();
-  employees.push({
+  
+  const employeeInfo = {
     firstName: firstName.value,
     lastName: lastName.value,
     birthday: birthday.value,
     age: calculateAge(birthday.value),
     salaryHour: salaryHour.value,
     hoursWorked: hoursWorked.value,
-    daysWorked: daysWorked(active.value,startDate.value,lastDate.value),
+    // booleans siempre preguntas yes no
+    daysWorked: daysWorked(hoursWorked.value),
     startDate: startDate.value,
-    active: active.value==='true'?true:false,
-    lastDate: lastDate.value,
+    active: active.value,
+    lastDate: lastDate.value||new Date(),
     daysActive: daysActive(active.value,startDate.value,lastDate.value)
-  });
+  }
+  employees.push(employeeInfo);
+  try{
+    console.log(employeeInfo)
+    if(Object.values(employeeInfo).some(i=>!i)){
+      throw new Error('Missing required data')
+    }
+    updateTable(employees[employees.length-1])
+    localStorage.setItem('employees', JSON.stringify(employees));
+  }catch(e){
+    console.log(e.message)
+  }
+  // for(const key in employeeInfo.values){
+  //   // try catch
+  //   try{
+  //     if(employeeInfo[key]===""){
+  //       throw new Error('Missing required data')
+  //     }
+  //     updateTable(employees[employees.length-1])
+  //     localStorage.setItem('employees', JSON.stringif(employees));
+  //   }
+  //   catch(error){
+  //     console.log('sirvio')
+  //   }
+  // }
   // update table and save to localstorage
-  updateTable(employees[employees.length-1])
-  localStorage.setItem('employees', JSON.stringify(employees));
+  
 });
 
 
@@ -71,9 +96,11 @@ function daysWorked(hours) {
   return timeString
 }
 
-function daysActive(active, startDate, lastDate=0) {
-  if(active==='true'){
-    const milliseconds = Math.abs(new Date() - new Date(startDate))
+function daysActive(active, startDate, lastDate) {
+  if(active==='yes'){
+    console.log(startDate, lastDate);
+    
+    const milliseconds = Math.abs(new Date(lastDate) - new Date(startDate))
     const minutes = Math.floor(milliseconds/60000)
     const hours = Math.floor(minutes/60)
     const days = Math.floor(hours/24)
@@ -127,4 +154,17 @@ function updateTable(employeesArray){
   activeCell.innerHTML = `${employeesArray.active?'Yes':'No'}`
   lastDateCell.innerHTML = employeesArray.lastDate
   daysActiveCell.innerHTML = employeesArray.daysActive
+  console.log("update table aqui");
+  
+}
+
+// these are functions to validate the form
+
+function emptyField(field){
+  // validate if the input fields are not empty
+  const regex = new RegExp(/\s+/,'gi')
+  if (field.value.match(regex) || field.value ===""){
+    return true;
+  }
+  return false;
 }

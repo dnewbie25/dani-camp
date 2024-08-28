@@ -31,6 +31,7 @@ document.addEventListener('DOMContentLoaded', function(e) {
   hoursWorked.value = ""
   startDate.value = ""
   active.value = 'yes'
+  // default value of lastDate is the current date in format "YYY-MM-DD"
   lastDate.value = new Date().toISOString().split('T')[0]
 });
 
@@ -46,17 +47,18 @@ submit.addEventListener('click', function(e) {
     age: calculateAge(birthday.value),
     salaryHour: salaryHour.value,
     hoursWorked: hoursWorked.value,
-    // booleans siempre preguntas yes no
     daysWorked: daysWorked(hoursWorked.value),
     startDate: startDate.value,
     active: active.value,
     lastDate: lastDate.value||new Date(),
-    daysActive: daysActive(active.value,startDate.value,lastDate.value)
+    daysActive: daysActive(startDate.value,lastDate.value)
   }
+  // try-catch. If there is missing required data, colors the border as red and throws an alert
   try{
     if(Object.values(employeeInfo).some(i=>!i)){
       throw new Error('Missing required data')
     }
+    // otherwise, pushes the current employee info the the employees array
     employees.push(employeeInfo);
     updateTable(employees[employees.length-1])
     localStorage.setItem('employees', JSON.stringify(employees));
@@ -87,25 +89,15 @@ function daysWorked(hours) {
   return timeString
 }
 
-function daysActive(active, startDate, lastDate) {
-  if(active==='yes'){
-    
-    const milliseconds = Math.abs(new Date(lastDate) - new Date(startDate))
-    const minutes = Math.floor(milliseconds/60000)
-    const hours = Math.floor(minutes/60)
-    const days = Math.floor(hours/24)
-    let timeString = '';
-    timeString += `${days} day${days > 1 ? 's' : ''}`;
-    return timeString;
-  }else{
-    const milliseconds = Math.abs(new Date(startDate) - new Date(lastDate))
-    const minutes = Math.floor(milliseconds/60000)
-    const hours = Math.floor(minutes/60)
-    const days = Math.floor(hours/24)
-    let timeString = '';
-    timeString += `${days} day${days > 1 ? 's' : ''}`;
-    return timeString;
-  }
+function daysActive(startDate, lastDate) {
+  // lastDate is the current date unless the user specifies a different date
+  const milliseconds = Math.abs(new Date(lastDate)- new Date(startDate))
+  const minutes = Math.floor(milliseconds/60000)
+  const hours = Math.floor(minutes/60)
+  const days = Math.floor(hours/24)
+  let timeString = '';
+  timeString += `${days} day${days > 1 ? 's' : ''}`;
+  return timeString;
 }
 
 function calculateAge(birthday){
@@ -141,6 +133,7 @@ function updateTable(employeesArray){
   hoursWorkedCell.innerHTML = employeesArray.hoursWorked
   daysWorkedCell.innerHTML = employeesArray.daysWorked
   startDateCell.innerHTML = employeesArray.startDate
+  // all employees are active unless marked as 'No'
   activeCell.innerHTML = `${employeesArray.active==='yes'?'Yes':'No'}`
   lastDateCell.innerHTML = employeesArray.lastDate
   daysActiveCell.innerHTML = employeesArray.daysActive  

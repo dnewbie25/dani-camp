@@ -41,17 +41,17 @@ submit.addEventListener('click', function(e) {
   
   // creates object with the current values in the field form
   const employeeInfo = {
-    firstName: firstName.value,
-    lastName: lastName.value,
-    birthday: birthday.value,
-    age: calculateAge(birthday.value),
-    salaryHour: salaryHour.value,
-    hoursWorked: hoursWorked.value,
-    daysWorked: daysWorked(hoursWorked.value),
-    startDate: startDate.value,
+    firstName: firstName.value.trim(),
+    lastName: lastName.value.trim(),
+    birthday: birthday.value.trim(),
+    age: calculateAge(birthday.value.trim()),
+    salaryHour: salaryHour.value.trim(),
+    hoursWorked: hoursWorked.value.trim(),
+    daysWorked: daysWorked(hoursWorked.value.trim()),
+    startDate: startDate.value.trim(),
     active: active.value,
     lastDate: lastDate.value||new Date(),
-    daysActive: daysActive(startDate.value,lastDate.value)
+    daysActive: daysActive(startDate.value.trim(),lastDate.value.trim())
   }
   // try-catch. If there is missing required data, colors the border as red and throws an alert
   try{

@@ -69,6 +69,19 @@ section {
   margin: 50px 0px;
 }
 
+/*form styles*/
+
+#required-field{
+  color: red;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+#note{
+  margin-top: 2rem;
+  font-size: 0.8rem;
+}
+
 #add-employee form{
   display: grid;
   padding-top: 20px;

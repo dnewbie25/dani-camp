@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function(e) {
   salaryHour.value = ""
   hoursWorked.value = ""
   startDate.value = ""
-  active.value = true
+  active.value = 'yes'
   lastDate.value = new Date().toISOString().split('T')[0]
 });
 
@@ -38,6 +38,7 @@ submit.addEventListener('click', function(e) {
   // adds the values to the employees array
   e.preventDefault();
   
+  // creates object with the current values in the field form
   const employeeInfo = {
     firstName: firstName.value,
     lastName: lastName.value,
@@ -52,37 +53,21 @@ submit.addEventListener('click', function(e) {
     lastDate: lastDate.value||new Date(),
     daysActive: daysActive(active.value,startDate.value,lastDate.value)
   }
-  employees.push(employeeInfo);
   try{
-    console.log(employeeInfo)
     if(Object.values(employeeInfo).some(i=>!i)){
       throw new Error('Missing required data')
     }
+    employees.push(employeeInfo);
     updateTable(employees[employees.length-1])
     localStorage.setItem('employees', JSON.stringify(employees));
   }catch(e){
     Array.from(form[0]).forEach(e=>{
-      if(!e.value){
-        e.style.borderColor = "red"
+      if(!e.value && (e.nodeName ==='INPUT'||e.nodeName==="SELECT")){
+        e.style.borderColor = "red";
       }
     })
-    alert('')
+    alert('Fields marked with * are required')
   }
-  // for(const key in employeeInfo.values){
-  //   // try catch
-  //   try{
-  //     if(employeeInfo[key]===""){
-  //       throw new Error('Missing required data')
-  //     }
-  //     updateTable(employees[employees.length-1])
-  //     localStorage.setItem('employees', JSON.stringif(employees));
-  //   }
-  //   catch(error){
-  //     console.log('sirvio')
-  //   }
-  // }
-  // update table and save to localstorage
-  
 });
 
 
@@ -104,7 +89,6 @@ function daysWorked(hours) {
 
 function daysActive(active, startDate, lastDate) {
   if(active==='yes'){
-    console.log(startDate, lastDate);
     
     const milliseconds = Math.abs(new Date(lastDate) - new Date(startDate))
     const minutes = Math.floor(milliseconds/60000)
@@ -157,11 +141,9 @@ function updateTable(employeesArray){
   hoursWorkedCell.innerHTML = employeesArray.hoursWorked
   daysWorkedCell.innerHTML = employeesArray.daysWorked
   startDateCell.innerHTML = employeesArray.startDate
-  activeCell.innerHTML = `${employeesArray.active?'Yes':'No'}`
+  activeCell.innerHTML = `${employeesArray.active==='yes'?'Yes':'No'}`
   lastDateCell.innerHTML = employeesArray.lastDate
-  daysActiveCell.innerHTML = employeesArray.daysActive
-  console.log("update table aqui");
-  
+  daysActiveCell.innerHTML = employeesArray.daysActive  
 }
 
 // these are functions to validate the form

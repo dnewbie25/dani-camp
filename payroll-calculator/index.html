@@ -16,27 +16,27 @@
       <h2>Add Employee</h2>
       <form>
         <div>
-          <label for="firstName">First Name</label>
-          <input type="text" name="firstName" id="firstName" required>
+          <label for="firstName">First Name<span id="required-field">*</span></label>
+          <input type="text" name="firstName" id="firstName"  placeholder="First Name">
         </div>
         <div>
-          <label for="lastName">Last Name</label>
+          <label for="lastName">Last Name<span id="required-field">*</span></label>
           <input type="text" name="lastName" id="lastName" required>
         </div>
         <div>
-          <label for="birthday">Birthday</label>
+          <label for="birthday">Birthday<span id="required-field">*</span></label>
           <input type="date" name="birthday" id="birthday" required>
         </div>
         <div>
-          <label for="salaryHour">Salary Per Hour</label>
+          <label for="salaryHour">Salary Per Hour<span id="required-field">*</span></label>
           <input type="number" name="salaryHour" id="salaryHour" required>
         </div>
         <div>
-          <label for="hoursWorked">Hours Worked</label>
+          <label for="hoursWorked">Hours Worked<span id="required-field">*</span></label>
           <input type="number" name="hoursWorked" id="hoursWorked" required>
         </div>
         <div>
-          <label for="startDate">Contract Start Date</label>
+          <label for="startDate">Contract Start Date<span id="required-field">*</span></label>
           <input type="date" name="startDate" id="startDate" required>
         </div>
         <div>
@@ -54,6 +54,7 @@
           <button type="submit" id="submit">Add Employee</button>
         </div>
       </form>
+      <p id="note">Fields marked with <span id="required-field">*</span> are required</p>
     </section>
 
     <section id="employees-info">

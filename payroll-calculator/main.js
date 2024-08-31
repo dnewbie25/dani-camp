@@ -9,6 +9,7 @@ const active = document.getElementById('active');
 const lastDate = document.getElementById('lastDate');
 const submit = document.getElementById('submit');
 const table = document.getElementById('table');
+const form = document.getElementsByTagName('form');
 
 // Load employees from localStorage
 let employees = [];
@@ -29,29 +30,46 @@ document.addEventListener('DOMContentLoaded', function(e) {
   salaryHour.value = ""
   hoursWorked.value = ""
   startDate.value = ""
-  active.value = true
-  lastDate.value = ""
+  active.value = 'yes'
+  // default value of lastDate is the current date in format "YYY-MM-DD"
+  lastDate.value = new Date().toISOString().split('T')[0]
 });
 
 submit.addEventListener('click', function(e) {
   // adds the values to the employees array
   e.preventDefault();
-  employees.push({
-    firstName: firstName.value,
-    lastName: lastName.value,
-    birthday: birthday.value,
-    age: calculateAge(birthday.value),
-    salaryHour: salaryHour.value,
-    hoursWorked: hoursWorked.value,
-    daysWorked: daysWorked(active.value,startDate.value,lastDate.value),
-    startDate: startDate.value,
-    active: active.value==='true'?true:false,
-    lastDate: lastDate.value,
-    daysActive: daysActive(active.value,startDate.value,lastDate.value)
-  });
-  // update table and save to localstorage
-  updateTable(employees[employees.length-1])
-  localStorage.setItem('employees', JSON.stringify(employees));
+  
+  // creates object with the current values in the field form
+  const employeeInfo = {
+    firstName: firstName.value.trim(),
+    lastName: lastName.value.trim(),
+    birthday: birthday.value.trim(),
+    age: calculateAge(birthday.value.trim()),
+    salaryHour: salaryHour.value.trim(),
+    hoursWorked: hoursWorked.value.trim(),
+    daysWorked: daysWorked(hoursWorked.value.trim()),
+    startDate: startDate.value.trim(),
+    active: active.value,
+    lastDate: lastDate.value||new Date(),
+    daysActive: daysActive(startDate.value.trim(),lastDate.value.trim())
+  }
+  // try-catch. If there is missing required data, colors the border as red and throws an alert
+  try{
+    if(Object.values(employeeInfo).some(i=>!i)){
+      throw new Error('Missing required data')
+    }
+    // otherwise, pushes the current employee info the the employees array
+    employees.push(employeeInfo);
+    updateTable(employees[employees.length-1])
+    localStorage.setItem('employees', JSON.stringify(employees));
+  }catch(e){
+    Array.from(form[0]).forEach(e=>{
+      if(!e.value && (e.nodeName ==='INPUT'||e.nodeName==="SELECT")){
+        e.style.borderColor = "red";
+      }
+    })
+    alert('Fields marked with * are required')
+  }
 });
 
 
@@ -71,24 +89,15 @@ function daysWorked(hours) {
   return timeString
 }
 
-function daysActive(active, startDate, lastDate=0) {
-  if(active==='true'){
-    const milliseconds = Math.abs(new Date() - new Date(startDate))
-    const minutes = Math.floor(milliseconds/60000)
-    const hours = Math.floor(minutes/60)
-    const days = Math.floor(hours/24)
-    let timeString = '';
-    timeString += `${days} day${days > 1 ? 's' : ''}`;
-    return timeString;
-  }else{
-    const milliseconds = Math.abs(new Date(startDate) - new Date(lastDate))
-    const minutes = Math.floor(milliseconds/60000)
-    const hours = Math.floor(minutes/60)
-    const days = Math.floor(hours/24)
-    let timeString = '';
-    timeString += `${days} day${days > 1 ? 's' : ''}`;
-    return timeString;
-  }
+function daysActive(startDate, lastDate) {
+  // lastDate is the current date unless the user specifies a different date
+  const milliseconds = Math.abs(new Date(lastDate)- new Date(startDate))
+  const minutes = Math.floor(milliseconds/60000)
+  const hours = Math.floor(minutes/60)
+  const days = Math.floor(hours/24)
+  let timeString = '';
+  timeString += `${days} day${days > 1 ? 's' : ''}`;
+  return timeString;
 }
 
 function calculateAge(birthday){
@@ -124,7 +133,19 @@ function updateTable(employeesArray){
   hoursWorkedCell.innerHTML = employeesArray.hoursWorked
   daysWorkedCell.innerHTML = employeesArray.daysWorked
   startDateCell.innerHTML = employeesArray.startDate
-  activeCell.innerHTML = `${employeesArray.active?'Yes':'No'}`
+  // all employees are active unless marked as 'No'
+  activeCell.innerHTML = `${employeesArray.active==='yes'?'Yes':'No'}`
   lastDateCell.innerHTML = employeesArray.lastDate
-  daysActiveCell.innerHTML = employeesArray.daysActive
+  daysActiveCell.innerHTML = employeesArray.daysActive  
+}
+
+// these are functions to validate the form
+
+function emptyField(field){
+  // validate if the input fields are not empty
+  const regex = new RegExp(/\s+/,'gi')
+  if (field.value.match(regex) || field.value ===""){
+    return true;
+  }
+  return false;
 }

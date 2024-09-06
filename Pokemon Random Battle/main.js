@@ -57,10 +57,10 @@ function playMatch(){
   }
   if(attack1 > attack2){
     winnerText.textContent = `${p1.toUpperCase()}!`
-    looserText.textContent = `${p2} looses😖`
+    looserText.textContent = `${p2} loses😖`
   }else{
     winnerText.textContent = `${p2.toUpperCase()}!`
-    looserText.textContent = `${p1} looses😖`
+    looserText.textContent = `${p1} loses😖`
   }
 }
 

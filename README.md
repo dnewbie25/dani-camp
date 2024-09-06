@@ -35,5 +35,5 @@ Random fight between two Pokemons
 
 ### Link to Demo
 
-[Pokemon Random Battle](https://regal-chaja-a4a36e.netlify.app)
+[Pokemon Random Battle](https://idyllic-treacle-712444.netlify.app)
 </details>

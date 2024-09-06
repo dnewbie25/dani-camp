@@ -3,6 +3,7 @@
 const pokemon1 = document.getElementById("pokemon1");
 const pokemon2 = document.getElementById("pokemon2");
 const btn = document.querySelector(".btn");
+const containers = document.querySelectorAll(".pokemon")
 // these means pokemon 1 and 2, images 1 and 2 that corresponds to each pokemon
 let p1, p2,img1, img2;
 
@@ -37,6 +38,26 @@ btn.addEventListener('click', async (e) => {
   // calls the API to get the name
   await gatherPokemons()
   await setImages(p1,p2)
+  drawPokemons()
 })
 
 // functions used to paint the sprites
+function drawPokemons(){
+  containers.forEach(div=>{
+    // renders the names
+    const children = div.childNodes;
+    if(children[1].id === 'name1'){
+      children[1].textContent = p1
+    }
+    if(children[1].id === 'name2'){
+      children[1].textContent = p2
+    }
+    // renders the images
+    if(children[3].id === 'img1'){
+      children[3].src = img1
+    }
+    if(children[3].id === 'img2'){
+      children[3].src = img2
+    }
+  })
+}

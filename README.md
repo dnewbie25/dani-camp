@@ -21,3 +21,19 @@ Payroll app created to track employees' payments throughout their entire contrac
 
 [Payroll Calculator](https://regal-chaja-a4a36e.netlify.app)
 </details>
+
+## Project 2: Pokemon Random Battle
+<details>
+<summary>Check out the details</summary>
+
+Random fight between two Pokemons
+
+### Preview
+
+![image](.)
+
+
+### Link to Demo
+
+[Pokemon Random Battle](https://regal-chaja-a4a36e.netlify.app)
+</details>

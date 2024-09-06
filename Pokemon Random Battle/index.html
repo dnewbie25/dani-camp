@@ -24,9 +24,10 @@
           <button class="btn btn-danger col-md-3" type="submit">FIGHT!</button>
         </div>
       </div>
-      <div class="container-sm col-lg d-flex flex-column align-items-center justify-content-center">
-        <h3 class="d-inline-block">This is the winner:</h3>
-        <p id="winner" class="d-inline-block text-secondary"></p>
+      <div class="container-sm col-lg d-flex flex-column align-items-center justify-content-center invisible match-results">
+        <h3 class="d-inline-block">The winner is: <span id="winner"></span></h3>
+        <p id="looser" class="d-inline-block text-secondary fs-3"></p>
+        <img src="pokeball.jpg" alt="Pokeball Image" class="img-fluid" id="pokeball">
       </div>
     </main>
     <script src="main.js"></script>

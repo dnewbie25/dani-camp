@@ -9,7 +9,7 @@ const winnerText = document.querySelector("#winner")
 const looserText = document.querySelector("#looser")
 // these means pokemon 1 and 2, images 1 and 2 that corresponds to each pokemon. The attack 1 and 2 represents the battle points (the id will be the attack points for each pokemon for now)
 
-let p1, p2,img1,img2,attack1,attack2;
+let p1,p2,img1,img2,attack1,attack2;
 
 /**
  * Retrieves a list of all Pokémon from the PokeAPI.
@@ -39,10 +39,10 @@ async function getPokemonImage(pokemon) {
  * @return {void}
  */
 async function gatherPokemons(){
-  p1 = await getRandomPokemon()
-  p1 = p1.results[Math.floor(Math.random() * 1302)].name
-  p2 = await getRandomPokemon()
-  p2 = p2.results[Math.floor(Math.random() * 1302)].name
+  const pokemon1 = await getRandomPokemon()
+  const pokemon2 = await getRandomPokemon()
+  p1 = pokemon1.results[Math.floor(Math.random() * 1302)].name
+  p2 = pokemon2.results[Math.floor(Math.random() * 1302)].name
 }
 
 /**
@@ -53,10 +53,10 @@ async function gatherPokemons(){
  * @return {void}
  */
 async function setImages(pokemonName1, pokemonName2){
-  img1 = await getPokemonImage(pokemonName1)
-  img1 = img1.sprites.other['official-artwork']['front_default']
-  img2 = await getPokemonImage(pokemonName2)
-  img2 = img2.sprites.other['official-artwork']['front_default']
+  const image1 = await getPokemonImage(pokemonName1)
+  const image2 = await getPokemonImage(pokemonName2)
+  img1 = image1.sprites.other['official-artwork']['front_default']
+  img2 = image2.sprites.other['official-artwork']['front_default']
 }
 
 

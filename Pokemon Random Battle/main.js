@@ -18,7 +18,7 @@ const pokemon2DataDefense = document.getElementById('pokemon2DataDefense');
 // these means pokemon 1 and 2, images 1 and 2 that corresponds to each pokemon. The attack 1 and 2 represents the battle points (the id will be the attack points for each pokemon for now)
 
 let p1, p2,img1,img2,attack1,attack2;
-let type1,type2,realAttack1,realAttack2, defence1,defence2;
+let type1,type2,realAttack1,realAttack2, defense1,defense2;
 
 window.addEventListener( 'onload', hideStats())
 /**
@@ -27,32 +27,6 @@ window.addEventListener( 'onload', hideStats())
 function hideStats() {
   pokemon1DataContainer.style.display = 'none'
   pokemon2DataContainer.style.display = 'none'
-};
-
-/**
- *  Unhides all stats after they have finished loading
- */
-function showStats() {
-  //invoke and set the pokemon type
-  setType( p1 , p2 );
-  //invoke and set the pokemon attack
-  setAttack( p1 , p2 );
-  //invoke and set the pokemon defence
-  setDefence( p1 , p2 );
-  //unhide the stats
-  setTimeout(() => {
-    //add the data to the stats section
-    pokemon1DataType.innerText = type1;
-    pokemon2DataType.innerText = type2;
-    pokemon1DataAttack.innerText = realAttack1;
-    pokemon2DataAttack.innerText = realAttack2;
-    pokemon1DataDefense.innerText = defence1;
-    pokemon2DataDefense.innerText = defence2;
-    //unhide all the stats
-    pokemon1DataContainer.style.display = 'block';
-    pokemon2DataContainer.style.display = 'block';
-  }, 500);
-
 };
 
 /**
@@ -132,15 +106,15 @@ async function setAttack(pokemonName1, pokemonName2) {
 };
 
 /**
- * get the pokemon defence stat
+ * get the pokemon defense stat
  * @param {string} pokemonName1 - 1st pokemon name
  * @param {string}} pokemonName2 - 2nd pokemon name
  */
-async function setDefence(pokemonName1, pokemonName2) {
-  defence1 = await getPokemonStats(pokemonName1);
-  defence1 = defence1.stats[2].base_stat;
-  defence2 = await getPokemonStats(pokemonName2);
-  defence2 = defence2.stats[2].base_stat;
+async function setdefense(pokemonName1, pokemonName2) {
+  defense1 = await getPokemonStats(pokemonName1);
+  defense1 = defense1.stats[2].base_stat;
+  defense2 = await getPokemonStats(pokemonName2);
+  defense2 = defense2.stats[2].base_stat;
 };
 
 // game logic,the pokemon Id will be used as the attack points
@@ -171,6 +145,47 @@ async function setPokemonPoints(pokemon1, pokemon2){
 }
 
 /**
+ *  Unhides all stats after they have finished loading
+ */
+function showStats() {
+  //invoke and set the pokemon type
+  setType( p1 , p2 );
+  //invoke and set the pokemon attack
+  setAttack( p1 , p2 );
+  //invoke and set the pokemon defense
+  setdefense( p1 , p2 );
+  //unhide the stats
+  setTimeout(() => {
+    //add the data to the stats section
+    pokemon1DataType.innerText = type1;
+    pokemon2DataType.innerText = type2;
+    pokemon1DataAttack.innerText = realAttack1;
+    pokemon2DataAttack.innerText = realAttack2;
+    pokemon1DataDefense.innerText = defense1;
+    pokemon2DataDefense.innerText = defense2;
+    //unhide all the stats
+    pokemon1DataContainer.style.display = 'block';
+    pokemon2DataContainer.style.display = 'block';
+  }, 500);
+
+};
+
+/**
+ * Colors the pokemon stats based on who won
+ * @param {number} number 
+ */
+function colorPlayerStats( number ) {
+  if(number === 1){
+    pokemon1DataContainer.setAttribute('class', 'text-success');
+    pokemon2DataContainer.setAttribute('class', 'text-danger');
+  } else {
+    pokemon1DataContainer.setAttribute('class', 'text-danger');
+    pokemon2DataContainer.setAttribute('class', 'text-success');
+  }
+};
+
+
+/**
  * Plays a match between two Pokemon.
  *
  * @return {void}
@@ -180,9 +195,11 @@ function playMatch(){
     resultsDiv.classList.remove("invisible")
   }
   if(attack1 > attack2){
+    colorPlayerStats(1);
     winnerText.textContent = `${p1.toUpperCase()}!`
     looserText.textContent = `${p2} loses😖`
   }else{
+    colorPlayerStats(2);
     winnerText.textContent = `${p2.toUpperCase()}!`
     looserText.textContent = `${p1} loses😖`
   }

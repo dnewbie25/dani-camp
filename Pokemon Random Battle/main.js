@@ -174,7 +174,7 @@ function showStats() {
  * Colors the pokemon stats based on who won
  * @param {number} number 
  */
-function colorPlayerStats( number ) {
+function colorPokemonStats( number ) {
   if(number === 1){
     pokemon1DataContainer.setAttribute('class', 'text-success');
     pokemon2DataContainer.setAttribute('class', 'text-danger');
@@ -194,12 +194,12 @@ function playMatch(){
   if(resultsDiv.classList.contains("invisible")){
     resultsDiv.classList.remove("invisible")
   }
-  if(attack1 > attack2){
-    colorPlayerStats(1);
+  if( realAttack1 > realAttack2 ){
+    colorPokemonStats(1);
     winnerText.textContent = `${p1.toUpperCase()}!`
     looserText.textContent = `${p2} loses😖`
-  }else{
-    colorPlayerStats(2);
+  } else {
+    colorPokemonStats(2);
     winnerText.textContent = `${p2.toUpperCase()}!`
     looserText.textContent = `${p1} loses😖`
   }
@@ -252,7 +252,7 @@ btn.addEventListener('click', async (e) => {
   await gatherPokemons()
   await setImages( p1 , p2 );
   await setPokemonPoints( p1 , p2 );
-  await showStats( p1 , p2 );
+  showStats( p1 , p2 );
 
   /**
    * Paints the sprites
@@ -262,5 +262,6 @@ btn.addEventListener('click', async (e) => {
    * Triggers the game logic after 1 second
    */
   setTimeout(playMatch,1000)
+
 })
 

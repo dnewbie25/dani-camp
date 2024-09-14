@@ -21,6 +21,12 @@ The functions are:
 - `drawPokemons()`: Paints the names and images of the two pokemons on the screen.
 - `playMatch()`: Displays the result of the match.
 
+## Playing Preview
+
+![How To Play]('Pokemon Random Battle/img/gif_recording.gif')
+
+
+
 ## Future Features
 
 <ul>

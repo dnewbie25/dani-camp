@@ -1,45 +1,71 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Random Pokemon Fight</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  </head>
-    <main class="container-sm d-flex flex-column align-items-center">
-      <h1>Pokemon Random Battle</h1>
-      <p>This app will create a random battle between two Pokemon</p>
-      <div class="container-sm gap-3">
-        <div class="row justify-content-center text-center gap-5">
-          <div id="pokemon1" class="col-md-5 pokemon">
-            <p class="name text-secondary fs-3" id="name1"></p>
-            <img src="" id="img1" class="img-fluid">
-            <div id="pokemon1DataContainer">
-              <p id="pokemon1LabelType">Type: <span id="pokemon1DataType">Water</span></p>
-              <p id="pokemon1LabelAttack">Attack: <span id="pokemon1DataAttack">12334</span></p>
-              <p id="pokemon1LabelDefense">Defense: <span id="pokemon1DataDefense">12334</span></p>
-            </div>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Random Pokemon Fight</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+
+<div class="modal fade" id="modal" tabindex="-1" aria-labelledby="pokemonModal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header d-flex flex-column justify-content-center text-center">
+        <h1 class="modal-title fs-5" id="pokemonModal d-block">Choose Your Pokémon</h1>
+        <div class="modal-body d-flex gap-2">
+          <div class="d-flex flex-column justify-content-center text-center">
+            <img src="" alt="select pokemon" id="choice1" class="img-fluid">
+            <button class="btn btn-danger col-md startBattle" type="button" id="choice1Btn" data-bs-dismiss="modal"></button>
           </div>
-          <div id="pokemon2" class="col-md-5 pokemon">
-            <p class="name text-secondary fs-3" id="name2"></p>
-            <img src="" id="img2" class="img-fluid">
-            <div id="pokemon2DataContainer" >
-              <p id="pokemon2LabelType">Type: <span id="pokemon2DataType">Water</span></p>
-              <p id="pokemon2LabelAttack">Attack: <span id="pokemon2DataAttack">12334</span></p>
-              <p id="pokemon2LabelDefense">Defense: <span id="pokemon2DataDefense">12334</span></p>
-            </div>
+          <div class="d-flex flex-column justify-content-center text-center">
+            <img src="" alt="select pokemon" id="choice2" class="img-fluid">
+            <button class="btn btn-danger col-md startBattle" type="button" id="choice2Btn" data-bs-dismiss="modal"></button>
           </div>
         </div>
-        <div class="row justify-content-center">
-          <button class="btn btn-danger col-md-3" type="submit">FIGHT!</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<main class="container-sm d-flex flex-column align-items-center">
+  <h1>Pokemon Random Battle</h1>
+  <p>This app will create a random battle between two Pokemon</p>
+  <div class="container-sm gap-3">
+    <div class="row justify-content-center text-center gap-5">
+      <div id="pokemon1" class="col-md-5 pokemon">
+        <p class="name text-secondary fs-3" id="name1"></p>
+        <img src="" id="img1" class="img-fluid">
+        <div id="pokemon1DataContainer">
+          <p id="pokemon1LabelType">Type: <span id="pokemon1DataType"></span></p>
+          <p id="pokemon1LabelAttack">Attack: <span id="pokemon1DataAttack"></span></p>
+          <p id="pokemon1LabelDefense">Defense: <span id="pokemon1DataDefense"></span></p>
         </div>
       </div>
-      <div class="container-sm col-lg d-flex flex-column align-items-center justify-content-center invisible match-results">
-        <h3 class="d-inline-block">The winner is: <span id="winner"></span></h3>
-        <p id="looser" class="d-inline-block text-secondary fs-3"></p>
-        <img src="pokeball.jpg" alt="Pokeball Image" class="img-fluid" id="pokeball">
+      <div id="pokemon2" class="col-md-5 pokemon">
+        <p class="name text-secondary fs-3" id="name2"></p>
+        <img src="" id="img2" class="img-fluid">
+        <div id="pokemon2DataContainer">
+          <p id="pokemon2LabelType">Type: <span id="pokemon2DataType"></span></p>
+          <p id="pokemon2LabelAttack">Attack: <span id="pokemon2DataAttack"></span></p>
+          <p id="pokemon2LabelDefense">Defense: <span id="pokemon2DataDefense"></span></p>
+        </div>
       </div>
-    </main>
-    <script src="main.js"></script>
-  </body>
+    </div>
+    <div class="row justify-content-center">
+      <button class="btn btn-danger col-md-3" type="submit" id="fight">FIGHT!</button>
+    </div>
+  </div>
+  <div class="container-sm col-lg d-flex flex-column align-items-center justify-content-center invisible match-results">
+    <h3 class="d-inline-block"><span id="winner"></span></h3>
+    <p id="looser" class="d-inline-block text-secondary fs-3"></p>
+    <img src="img/pokeball.jpg" alt="Pokeball Image" class="img-fluid" id="pokeball">
+  </div>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+<script src="main.js"></script>
+</body>
+
 </html>

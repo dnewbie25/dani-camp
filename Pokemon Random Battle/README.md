@@ -23,9 +23,7 @@ The functions are:
 
 ## Playing Preview
 
-![How To Play]('Pokemon Random Battle/img/gif_recording.gif')
-
-
+![gif_recording](https://github.com/user-attachments/assets/7bb2e65b-4f21-4c3c-a205-9003f73a6cd4)
 
 ## Future Features
 

@@ -30,8 +30,7 @@ This app plays a random fight between two Pokemons
 
 ### Preview
 
-![image](https://github.com/user-attachments/assets/5d3a07bb-27d1-4cb5-ae13-97e9a2609894)
-
+![gif_recording](https://github.com/user-attachments/assets/1c7e681a-214d-47f7-923a-fa0ccc39f912)
 
 ### Link to Demo
 

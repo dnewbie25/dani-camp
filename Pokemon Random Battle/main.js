@@ -2,7 +2,7 @@
 
 const pokemon1 = document.getElementById("pokemon1");
 const pokemon2 = document.getElementById("pokemon2");
-const btn = document.querySelector(".btn");
+const btn = document.querySelector("#fight");
 const containers = document.querySelectorAll(".pokemon");
 const resultsDiv = document.querySelector(".match-results");
 const winnerText = document.querySelector("#winner");
@@ -15,12 +15,22 @@ const pokemon1DataAttack = document.getElementById('pokemon1DataAttack');
 const pokemon2DataAttack = document.getElementById('pokemon2DataAttack');
 const pokemon1DataDefense = document.getElementById('pokemon1DataDefense');
 const pokemon2DataDefense = document.getElementById('pokemon2DataDefense');
-// these means pokemon 1 and 2, images 1 and 2 that corresponds to each pokemon. The attack 1 and 2 represents the battle points (the id will be the attack points for each pokemon for now)
+// modal window selectors
+const modal = new bootstrap.Modal(document.getElementById('modal'))
+const pokemonChoice1 = document.getElementById('choice1')
+const pokemonChoice2 = document.getElementById('choice2')
+const pokemonChoice1Btn = document.getElementById('choice1Btn')
+const pokemonChoice2Btn = document.getElementById('choice2Btn')
+const startBattleBtns = document.querySelectorAll('.startBattle')
+// current pokemon selected
+let currentChoice = 0;
 
-let p1, p2,img1,img2,attack1,attack2;
-let type1,type2,realAttack1,realAttack2, defense1,defense2;
+// the below means pokemon 1 and 2, images 1 and 2 that corresponds to each pokemon. The attack 1 and 2 represents the battle points (the id will be the attack points for each pokemon for now)
 
-window.addEventListener( 'onload', hideStats())
+let p1, p2, img1, img2, attack1, attack2;
+let type1, type2, realAttack1, realAttack2, defense1, defense2;
+
+window.addEventListener('onload', hideStats())
 /**
  * hides pokemon stats on window load
  */
@@ -35,7 +45,7 @@ function hideStats() {
  * @return {Promise} The response of the API in json.
  */
 async function getRandomPokemon() {
-  const pokemon = await fetch('https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0',{mode:'cors'})
+  const pokemon = await fetch('https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0', { mode: 'cors' })
   return pokemon.json()
 }
 
@@ -60,7 +70,7 @@ async function getPokemonStats(pokemonName) {
  *
  * @return {void}
  */
-async function gatherPokemons(){
+async function gatherPokemons() {
   const pokemon1 = await getRandomPokemon()
   const pokemon2 = await getRandomPokemon()
   p1 = pokemon1.results[Math.floor(Math.random() * 1302)].name
@@ -74,7 +84,7 @@ async function gatherPokemons(){
  * @param {string} pokemonName2 - The name of the second Pokémon.
  * @return {void}
  */
-async function setImages(pokemonName1, pokemonName2){
+async function setImages(pokemonName1, pokemonName2) {
   const image1 = await getPokemonImage(pokemonName1)
   const image2 = await getPokemonImage(pokemonName2)
   img1 = image1.sprites.other['official-artwork']['front_default']
@@ -124,7 +134,7 @@ async function setdefense(pokemonName1, pokemonName2) {
  * @param {string} pokemon - The name of the Pokemon.
  * @return {Promise} The response of the API in json.
  */
-async function getPokemonId(pokemon){
+async function getPokemonId(pokemon) {
   const pokemonId = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`)
   return pokemonId.json()
 }
@@ -137,7 +147,7 @@ async function getPokemonId(pokemon){
  * @param {string} pokemon2 - The name of the second Pokemon.
  * @return {void}
  */
-async function setPokemonPoints(pokemon1, pokemon2){
+async function setPokemonPoints(pokemon1, pokemon2) {
   attack1 = await getPokemonId(pokemon1)
   attack1 = attack1.id
   attack2 = await getPokemonId(pokemon2)
@@ -149,11 +159,11 @@ async function setPokemonPoints(pokemon1, pokemon2){
  */
 function showStats() {
   //invoke and set the pokemon type
-  setType( p1 , p2 );
+  setType(p1, p2);
   //invoke and set the pokemon attack
-  setAttack( p1 , p2 );
+  setAttack(p1, p2);
   //invoke and set the pokemon defense
-  setdefense( p1 , p2 );
+  setdefense(p1, p2);
   //unhide the stats
   setTimeout(() => {
     //add the data to the stats section
@@ -174,8 +184,8 @@ function showStats() {
  * Colors the pokemon stats based on who won
  * @param {number} number 
  */
-function colorPokemonStats( number ) {
-  if(number === 1){
+function colorPokemonStats(number) {
+  if (number === 1) {
     pokemon1DataContainer.setAttribute('class', 'text-success');
     pokemon2DataContainer.setAttribute('class', 'text-danger');
   } else {
@@ -190,18 +200,30 @@ function colorPokemonStats( number ) {
  *
  * @return {void}
  */
-function playMatch(){
-  if(resultsDiv.classList.contains("invisible")){
+function playMatch() {
+  if (resultsDiv.classList.contains("invisible")) {
     resultsDiv.classList.remove("invisible")
   }
-  if( realAttack1 > realAttack2 ){
-    colorPokemonStats(1);
-    winnerText.textContent = `${p1.toUpperCase()}!`
-    looserText.textContent = `${p2} loses😖`
+  if (realAttack1 > realAttack2) {
+    if(currentChoice === 1){
+      colorPokemonStats(currentChoice);
+      winnerText.textContent = `Your ${p1.toUpperCase()} Wins!`
+      looserText.textContent = `${p2} loses😖`
+    }else{
+      colorPokemonStats(1);
+      winnerText.textContent = `${p1.toUpperCase()} Wins!`
+      looserText.textContent = `Your ${p2} loses😖`
+    }
   } else {
-    colorPokemonStats(2);
-    winnerText.textContent = `${p2.toUpperCase()}!`
-    looserText.textContent = `${p1} loses😖`
+    if(currentChoice === 2){
+      colorPokemonStats(currentChoice);
+      winnerText.textContent = `Your ${p2.toUpperCase()} Wins!`
+      looserText.textContent = `${p1} loses😖`
+    }else{
+      colorPokemonStats(2);
+      winnerText.textContent = `${p2.toUpperCase()} Wins!`
+      looserText.textContent = `Your ${p1} loses😖`
+    }
   }
 }
 
@@ -211,26 +233,25 @@ function playMatch(){
  * @function
  * @param {void} - No parameters
  */
-function drawPokemons(){
-  containers.forEach(div=>{
+function drawPokemons() {
+  containers.forEach(div => {
     // renders the names
     const children = div.childNodes;
-    if(children[1].id === 'name1'){
+    if (children[1].id === 'name1') {
       children[1].textContent = p1
     }
-    if(children[1].id === 'name2'){
+    if (children[1].id === 'name2') {
       children[1].textContent = p2
     }
     // renders the images
-    if(children[3].id === 'img1'){
+    if (children[3].id === 'img1') {
       children[3].src = img1
     }
-    if(children[3].id === 'img2'){
+    if (children[3].id === 'img2') {
       children[3].src = img2
     }
   })
 }
-
 
 
 /**
@@ -239,29 +260,51 @@ function drawPokemons(){
  * @param {Event} e - The event triggered by the button
  */
 btn.addEventListener('click', async (e) => {
-  /**
-   * Resets the results div to invisible
-   */
-  if(!resultsDiv.classList.contains("invisible")){
-    resultsDiv.classList.add("invisible")
-  }
-
-  /**
-   * Calls the API to get the name and image of the pokemon
-   */
+  // fetchs the API, set the currentChoice as 0 because no pokemon has been selected
+  currentChoice = 0;
   await gatherPokemons()
-  await setImages( p1 , p2 );
-  await setPokemonPoints( p1 , p2 );
-  showStats( p1 , p2 );
+  await setImages(p1, p2);
 
-  /**
-   * Paints the sprites
-   */
-  drawPokemons()
-  /**
-   * Triggers the game logic after 1 second
-   */
-  setTimeout(playMatch,1000)
-
+  // before continuing, it shows a model to choose pokemon 1 or 2, and sets its inside images
+  pokemonChoice1.src = img1;
+  pokemonChoice2.src = img2;
+  pokemonChoice1Btn.textContent = p1;
+  pokemonChoice2Btn.textContent = p2;
+  modal.show()
 })
 
+/**
+ * Event listener for the start battle buttons. When clicked, it triggers the start of the game letting player to choose
+ * from 2 different pokemon
+ * @function
+ * @param {Event} e - The event triggered by the button
+ */
+startBattleBtns.forEach(btn => {
+  btn.addEventListener('click', async e => {
+    e.preventDefault()
+    if (!resultsDiv.classList.contains("invisible")) {
+      resultsDiv.classList.add("invisible")
+    }
+    
+    // player can select the pokemon and sets the currentChoice to that pokemon
+    if(e.target.id === 'choice1Btn'){
+      currentChoice = 1
+    }else if(e.target.id === 'choice2Btn'){
+      currentChoice = 2
+    }
+
+    /**
+     * set each pokemon points
+     */
+    await setPokemonPoints(p1, p2);
+    showStats(p1, p2);
+    /**
+     * Paints the sprites
+     */
+    drawPokemons()
+    /**
+     * Triggers the game logic after 1 second
+     */
+    setTimeout(playMatch, 1000)
+  });
+})

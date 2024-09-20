@@ -1,2 +1,7 @@
+<<<<<<< Updated upstream
 .venv/
 .vscode/
+=======
+
+.DS_Store
+>>>>>>> Stashed changes

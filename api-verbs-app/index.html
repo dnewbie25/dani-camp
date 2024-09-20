@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>API Verbs App</title>
+</head>
+<body>
+  <main class="sm:container mx-auto lg:max-w-3xl my-6 space-y-12 font-mono">
+    <section class="sm:container mx-auto lg:max-w-3xl my-6 space-y-12 text-lg">
+      <h1 class="text-2xl font-bold tracking-wide">API Verbs App</h1>
+      <p>This small app will make one of the 4 basic HTTP requests to the HTTBin API: <a href="https://httpbin.org" class="text-emerald-400 font-bold hover:text-emerald-600">https://httpbin.org/</a></p>
+      <p>The goal is to enter students data in the format: <br>
+        <code style="color: #eb573f; font-family: Menlo, Monaco, Consolas, 'Courier New', monospace;">
+          {<br>
+            name: <span style="color: #6495ed">Student Name</span>,<br>
+            age: <span style="color: #6495ed">Integer Representing Age</span>,<br>
+            class: <span style="color: #6495ed">Random 4 digit Number</span> (Optional parameter, it can be calculated)<br>
+          }
+        </code>
+      <br>
+      When you use POST requests, enter the data in the same format and you should see which data was sent.
+      </p>
+      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" id="btn">Make Request</button>
+    </section>
+    <section class="sm:container mx-auto lg:max-w-3xl my-6 space-y-12 text-lg">
+      <div class="flex gap-x-3 flex-1 grow flex-wrap border-solid border-emerald-200 border p-2">
+        <p>Please enter</p>
+        <label for="get" class="text-gray-900 text-lg">Make a GET request</label>
+        <input type="text" name="get" placeholder="GET" class="border-emerald-300 border rounded-lg p-2 hover:border-emerald-700" id="get">
+        <p class="block text-gray-400" id="getP"></p>
+      </div>
+      <div class="flex gap-x-3 flex-1 grow flex-wrap border-solid border-emerald-200 border p-2">
+        <label for="post" class="text-gray-900 text-lg">Make a POST request. Enter the data in the format: name,age. The class will be added randomly</label>
+        <input type="text" name="post" placeholder="POST" class="border-emerald-300 border rounded-lg p-2 hover:border-emerald-700" id="post">
+        <p class="block text-gray-400" id="postP"></p>
+      </div>
+      <div class="flex gap-x-3 flex-1 grow flex-wrap border-solid border-emerald-200 border p-2">
+        <label for="put" class="text-gray-900 text-lg">Make a PUT request</label>
+        <input type="text" name="put" placeholder="PUT" class="border-emerald-300 border rounded-lg p-2 hover:border-emerald-700" id="put">
+        <p class="block text-gray-400" id="putP"></p>
+      </div>
+      <div class="flex gap-x-3 flex-1 grow flex-wrap border-solid border-emerald-200 border p-2">
+        <label for="delete" class="text-gray-900 text-lg">Make a DELETE request</label>
+        <input type="text" name="delete" placeholder="DELETE" class="border-emerald-300 border rounded-lg p-2 hover:border-emerald-700" id="delete">
+        <p class="block text-gray-400" id="deleteP"></p>
+      </div>
+    </section>
+  </main>
+  <script src="main.js"></script>
+</body>
+
+</html>

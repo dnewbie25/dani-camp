@@ -23,10 +23,10 @@ requestBtn.addEventListener('click', async (e) => {
     await postFunction(post.value)  
   }
   if(put.value){
-    const putResult = await putFunction(put.value)  
+    await putFunction(put.value)  
   }
   if(deleteField.value){
-    const deleteResult = await deleteFunction(deleteField.value)
+    await deleteFunction(deleteField.value)
   }
   get.value = ''
   post.value = ''

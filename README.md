@@ -36,3 +36,18 @@ This app plays a random fight between two Pokemons
 
 [Pokemon Random Battle](https://idyllic-treacle-712444.netlify.app)
 </details>
+
+## Project 3: API Verbs App
+<details>
+<summary>Check out the details</summary>
+
+This app was created to test the 4 basic HTTP verbs: GET, POST, PUT and DELETE
+
+### Preview
+
+![gif_recording](https://github.com/user-attachments/assets/1c7e681a-214d-47f7-923a-fa0ccc39f912)
+
+### Link to Demo
+
+[API Verbs App](https://api-verbs-app.netlify.app)
+</details>

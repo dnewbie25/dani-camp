@@ -1,18 +1,18 @@
 # API Verbs App
 
-This is a basic JS and HTML app to test API verbs like PUT, POST, GET and DELETE using the [HTTBin](https://httpbin.org/) API.
+This is a basic JS and HTML app to test API verbs like PUT, POST, GET and DELETE using a dummy API that I created called [API-Verbs-App](https://github.com/dnewbie25/API-Verbs-App).
 
 ## How to use
 
 1. Open the `index.html` file in your browser.
-2. Use the HTTBin API endpoints to test the different API verbs. Each verb can be testes using an input field that will show in screen what infor has been retrieved/passed in a JSON format
+2. Use the API-Verbs-App API endpoints to test the different API verbs. Each verb can be tested using an input field that will show in screen what has been retrieved.
 
 ## Endpoints
 
-* GET: https://httpbin.org/get
-* POST: https://httpbin.org/post
-* PUT: https://httpbin.org/put
-* DELETE: https://httpbin.org/delete
+* GET: https://api-verbs-app.onrender.com/get
+* POST: https://api-verbs-app.onrender.com/post
+* PUT: https://api-verbs-app.onrender.com/put
+* DELETE: https://api-verbs-app.onrender.com/delete
 
 ## Technologies Used
 
@@ -20,3 +20,4 @@ This is a basic JS and HTML app to test API verbs like PUT, POST, GET and DELETE
 * CSS
 * JavaScript
 * Postman-Echo API
+* Python and FastAPI for the API-Verbs-App

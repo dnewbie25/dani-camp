@@ -24,11 +24,9 @@ requestBtn.addEventListener('click', async (e) => {
   }
   if(put.value){
     const putResult = await putFunction(put.value)  
-    console.log(putResult);
   }
   if(deleteField.value){
     const deleteResult = await deleteFunction(deleteField.value)
-    console.log(deleteResult);
   }
   get.value = ''
   post.value = ''
@@ -48,7 +46,7 @@ async function getFunction(data) {
     throw new Error('No value has been passed for an HTTP GET request. Please input a value')
   }
   try{
-    const url = await fetch(`http://127.0.0.1:8000/get/${data}`,
+    const url = await fetch(`https://api-verbs-app.onrender.com/get/${data}`,
       {
         mode:'cors'
       })
@@ -77,7 +75,7 @@ async function postFunction(data) {
     }
   };
   try{
-    await fetch(`http://127.0.0.1:8000/post/${data}`,
+    await fetch(`https://api-verbs-app.onrender.com/post/${data}`,
       options)    
   }catch{
     throw new Error('HTTP Post error, please check your input')
@@ -102,9 +100,8 @@ async function putFunction(data) {
     },
   };
   try{
-    const url = await fetch(`http://127.0.0.1:8000/put/${data}`,
+    const url = await fetch(`https://api-verbs-app.onrender.com/put/${data}`,
       options)
-    console.log(url);
     
   }catch{
     throw new Error('HTTP Put error, please check your input')
@@ -129,7 +126,7 @@ async function deleteFunction(data) {
     }
   }
   try{
-    await fetch(`http://127.0.0.1:8000/delete/?books=${data}`,
+    await fetch(`https://api-verbs-app.onrender.com/delete/?books=${data}`,
       options)
   }catch{
     throw new Error('HTTP Delete error, please check your input')

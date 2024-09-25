@@ -4,6 +4,10 @@ This is a basic JS and HTML app to test API verbs like PUT, POST, GET and DELETE
 
 You can access the API Verbs App here: _[https://api-verbs-app.netlify.app](https://api-verbs-app.netlify.app)_
 
+## Preview
+
+![opera_cPewIDRrjP](https://github.com/user-attachments/assets/079c7fe0-2e60-4881-ac68-3e664426a543)
+
 ## How to use
 
 1. Open the `index.html` file in your browser.

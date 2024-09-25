@@ -45,7 +45,7 @@ This app was created to test the 4 basic HTTP verbs: GET, POST, PUT and DELETE
 
 ### Preview
 
-![gif_recording](https://github.com/user-attachments/assets/1c7e681a-214d-47f7-923a-fa0ccc39f912)
+![opera_cPewIDRrjP](https://github.com/user-attachments/assets/15e5e51b-bee4-44c8-95e0-2e352ff5f4d7)
 
 ### Link to Demo
 

@@ -16,16 +16,18 @@
     <div class="p-3 border border-danger solid mt-3 d-flex flex-column justify-content-center align-items-center rounded-5">
       <label for="digits">How many digits you want? Enter a number</label>
       <input type="number" name="digits" id="digitsInput" placeholder="Number of digits" class="col-sm-6 rounded-3 p-2 border-0 border-bottom border-danger mt-3">
+      <button id="guessBtn" class="btn btn-danger fs-3 col-sm-8 mt-4 rounded-5">CREATE RANDOM CODE</button>
     </div>
+    <!-- This Guess the number section as well as the Guess button should be hidden until a random code has been generated -->
     <div class="p-3 border border-danger solid mt-3 d-flex flex-column justify-content-center align-items-center rounded-5">
       <label for="guess">Guess the number. Enter a number with <span id="currentSize"></span> digits</label>
       <input type="number" name="digits" id="guessInput" placeholder="Enter your guess" class="col-sm-6 rounded-3 p-2 border-0 border-bottom border-danger mt-3">
     </div>
     <button id="guessBtn" class="btn btn-danger fs-2 col-sm-6 mt-4 rounded-5">GUESS!</button>
     <div class="p-3 col-8 mt-4" id="results">
-      <p id="resultText"></p>
-      <p id="exact">Exact matches: <span class="fw-bold fs-1" style="color: rgb(79, 241, 74);"></span></p>
-      <p id="partial">Partial matches: <span class="text-danger fw-bold fs-1"></span></p>
+      <p id="resultText">Here you should see a message about the word or a congratulatio if correct</p>
+      <p id="exact">Exact matches: <span class="fw-bold fs-1" style="color: rgb(79, 241, 74);">10</span></p>
+      <p id="partial">Partial matches: <span class="text-danger fw-bold fs-1">10</span></p>
     </div>
   </main>
   <script src="main.js"></script>

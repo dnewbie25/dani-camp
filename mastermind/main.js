@@ -5,9 +5,9 @@ const partial = document.getElementById('partial');
 const resultText = document.getElementById('resultText');
 const totalDigits = document.getElementById('digitsInput');
 
+// the code is commented because I used prompt and it basically does not allow to see the HTML. Try using it to see the game
 
-
-// // Generate a random 4-digit code
+// // Generate a random code of a size defined by you
 // let code = [];
 // let size = Number(prompt("How long do you want the code to be? Enter a number"))
 

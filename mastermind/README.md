@@ -6,30 +6,12 @@ This is our version of the Mastermind app, the popular game where the goal is to
 
 The app contains the following fields:
 
-```js
-First Name (required) - Accepts a string
-Last Name (required) - Accepts a string
-Birthday (required) - Accepts a string in format "mm/dd/yyyy"
-Salary Per Hour (required) - Accepts an number
-Hours Worked (required) - Accepts an number
-Contract Start Date (required) - Accepts a string in format "mm/dd/yyyy" representing the first day of the employee
-Is an Active Employee? - Two choices, 'Yes' or 'No'. Default is 'Yes'
-Contract Last Date (required) - Accepts a string in format "mm/dd/yyyy" representing the last day of the employee
-```
 
-Once this data is passed, click on "Add Employee" and a row with the employee information along with some calculated fields will be displayed. The calculated fields are:
+`How many digits you want? Enter a number` - Accepts a number representing the total number of digits the code has. Once this data is passed, click on `Generate Random Number`. It will then create a random number and you will see the input field to put your guesses.
 
-```js
-Age - Represents the age based on the 'Birthday' in format 'X years old'
-Days Worked - Represents the total days worked, counting each day as an 8-hour working day in format 'X day(s) Y hour(s)'
-Days Active - Total number of calendar days the employee has been under the 'Active' status in format 'X day(s)'
-```
+`Guess the number. Enter a number with XX digits` (required) - Accepts a number. It must be the same length as the digits you defined. This field will appear once a random code to break has been created
 
 
-## Future Features
+Your goal is to try to find the code within 10 attempts. You will get hints like total number of digits that match and are in the correct position, as well as the total number of digits that match but are in the wrong position.
 
-<ul>
-  <li>A severance pay column to track how much severance must be pay based on the first and last dates working</li>
-  <li>A row at the end of the employees records adding the totals of hours and days worked along with the salaries and total severances paid for inactive employees</li>
-  <li>The "Contract Last Date" field should be grayed out if "Is an Active Employee?" is set to "No"</li>
-</ul>
+For example, if the code is `2345`. If you guess `2739` you will get feedback saying that `2` digits match, but `1` is in the incorrect position. With this limited amount of information you should find the correct code.

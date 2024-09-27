@@ -51,3 +51,18 @@ This app was created to test the 4 basic HTTP verbs: GET, POST, PUT and DELETE
 
 [API Verbs App](https://api-verbs-app.netlify.app)
 </details>
+
+## Project 4: NPM Poké API
+<details>
+<summary>Check out the details</summary>
+
+This app is an npm package that you can install to retrieve basic data about a Pokémon you input as an argument.
+
+### Preview
+
+![opera_cPewIDRrjP](https://github.com/user-attachments/assets/15e5e51b-bee4-44c8-95e0-2e352ff5f4d7)
+
+### Link to Demo
+
+[NPM Poké API](https://www.npmjs.com/package/npm-poke-api)
+</details>

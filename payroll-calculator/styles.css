@@ -123,7 +123,7 @@ form button:hover {
 }
 
 table {
-  min-width: 800px; /* Ensure table has a minimum width */
+  min-width: 900px; /* Ensure table has a minimum width */
   border-collapse: collapse;
   margin: 20px 0;
   font-family: "Poppins", sans-serif;

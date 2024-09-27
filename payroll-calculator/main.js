@@ -75,6 +75,12 @@ submit.addEventListener('click', function(e) {
 
 // calculates the days worked using the hours and the days active using the start and end date. If still active, calculates using the current date.
 
+/**
+ * Calculates the total days and hours worked based on the given hours.
+ *
+ * @param {number} hours - The total hours worked.
+ * @return {string} A string representing the total days and hours worked (e.g., "3 days 2 hours").
+ */
 function daysWorked(hours) {
   // this function return the total days worked by counting working days as 8 hours per day
   const days = Math.floor(hours / 8);
@@ -89,6 +95,13 @@ function daysWorked(hours) {
   return timeString
 }
 
+/**
+ * Calculates the total days an employee has been active based on the given start date and last date.
+ *
+ * @param {string} startDate - The start date of the employee's contract.
+ * @param {string} lastDate - The last date of the employee's contract, defaults to the current date if not specified.
+ * @return {string} A string representing the total days the employee has been active (e.g., "3 days").
+ */
 function daysActive(startDate, lastDate) {
   // lastDate is the current date unless the user specifies a different date
   const milliseconds = Math.abs(new Date(lastDate)- new Date(startDate))
@@ -100,6 +113,12 @@ function daysActive(startDate, lastDate) {
   return timeString;
 }
 
+/**
+ * Calculates the age of a person based on their birthday.
+ *
+ * @param {string} birthday - The birthday of the person in a date string format.
+ * @return {string} A string representing the age of the person in years.
+ */
 function calculateAge(birthday){
   const currentDate = new Date()
   const birthdayDate = new Date(birthday)
@@ -109,6 +128,12 @@ function calculateAge(birthday){
   return `${years} years old`
 }
 
+/**
+ * Updates the employee table by adding a new row with the provided employee data.
+ *
+ * @param {object} employeesArray - An object containing the employee's data, including first name, last name, birthday, age, salary per hour, hours worked, days worked, start date, active status, last date, and days active.
+ * @return {void}
+ */
 function updateTable(employeesArray){
   // adds a row at the end of the table
   // the variable declarations indicate the position of each element across the columns
@@ -141,6 +166,12 @@ function updateTable(employeesArray){
 
 // these are functions to validate the form
 
+/**
+ * Checks if an input field is empty.
+ *
+ * @param {object} field - The input field to be validated.
+ * @return {boolean} True if the field is empty, false otherwise.
+ */
 function emptyField(field){
   // validate if the input fields are not empty
   const regex = new RegExp(/\s+/,'gi')

@@ -60,7 +60,7 @@ This app is an npm package that you can install to retrieve basic data about a P
 
 ### Preview
 
-![opera_cPewIDRrjP](https://github.com/user-attachments/assets/15e5e51b-bee4-44c8-95e0-2e352ff5f4d7)
+![npm-poke-api gif](https://github.com/user-attachments/assets/c26dc013-6491-4882-bdee-9246bfc48167)
 
 ### Link to Demo
 

@@ -1,0 +1,31 @@
+{
+  "name": "npm-poke-api",
+  "version": "1.0.0",
+  "description": "This package return basic pokémon data when the pokémon name is entered",
+  "main": "index.js",
+  "bin": {
+    "pokemon-cli": "./index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "run-app": "node index.js get-pokemon --pokemon"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dnewbie25/dani-camp.git#main"
+  },
+  "keywords": [
+    "pokemon",
+    "pokémon",
+    "api"
+  ],
+  "author": "Daniel Montoya",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dnewbie25/dani-camp/issues"
+  },
+  "homepage": "https://github.com/dnewbie25/dani-camp/tree/main#readme",
+  "dependencies": {
+    "yargs": "^17.7.2"
+  }
+}

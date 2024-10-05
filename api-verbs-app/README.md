@@ -18,11 +18,11 @@ You can access the API Verbs App here: _[https://api-verbs-app.netlify.app](http
 * GET: https://api-verbs-app.onrender.com/get
   * Accepts an integer as id (default books go from `1` to `6`), or the string `all` to retrieve all books
 * POST: https://api-verbs-app.onrender.com/post
-  * Accepts a string with the id, title, author and category, separated by commas, i.e, `7,Harry Potter and the Hollows, J Rowling,Fantasy`
+  * Accepts a string with the id, title, author and category, separated by commas, i.e, `7,Harry Potter and the Hollows, J Rowling,Fantasy`. Spaces between those commas are not necessary.
 * PUT: https://api-verbs-app.onrender.com/put
-  * Accepts a string with the id to modify, along with title, author and category, separated by commas, i.e, `7,Harry Potter and the Deadly Hollows, J.K. Rowling,Fantasy`
+  * Accepts a string with the id to modify, along with title, author and category, separated by commas, i.e, `7,Harry Potter and the Deadly Hollows, J.K. Rowling,Fantasy`. As with `POST`, spaces between the commas are not required.
 * DELETE: https://api-verbs-app.onrender.com/delete
-  * Accepts a string with an id or ids of the books to delete: `1` or `1,6,2`
+  * Accepts a string with an id or ids of the books to delete. If multiple ids are entered, they must be separated by commas: `1` or `1,6,2`
 
 ## Technologies Used
 

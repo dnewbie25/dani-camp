@@ -87,7 +87,40 @@ video {
   padding: 0;
   border: 0;
   font-size: 100%;
-  font: inherit;
+  font: $font;
   vertical-align: baseline;
   box-sizing: border-box;
+}
+
+body {
+  background-color: $background;
+}
+
+#home{
+  display: grid;
+  grid-template-columns: repeat(12,1fr);
+  grid-template-rows: repeat(12, 1fr);
+  gap: 32px;
+  margin: 72px;
+  &__logo{
+    width: fit-content;
+    grid-column: 6 / span 9;
+    grid-row: 5 / 6;
+  }
+  &__input-fields {
+    grid-row: 6 / 7;
+    grid-column: 2 / span 10;
+  }
+}
+
+@media (max-width <= 490px) {
+  #home__input-fields{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    input,
+    button{
+      display: block;
+    }
+  }
 }

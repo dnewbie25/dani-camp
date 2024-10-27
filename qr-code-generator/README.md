@@ -11,3 +11,5 @@ You can type or paste a URL or text and click the `QR code` button or press `Ent
 The app uses the `qrcodejs` library via CDN. The library can be accessed here: [qrcodejs](https://cdnjs.com/libraries/qrcodejs)
 
 ## Playing Preview
+
+![Untitled video - Made with Clipchamp (1)](https://github.com/user-attachments/assets/2ff8cf8a-ac7f-4d5c-8091-7f51ba818870)

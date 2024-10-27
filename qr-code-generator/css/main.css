@@ -167,8 +167,8 @@ body {
 }
 #qr-result__image {
   background: hsl(223, 47%, 23%);
-  width: 350px;
-  height: 350px;
+  width: 320px;
+  height: 320px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -176,9 +176,8 @@ body {
   margin-bottom: 3rem;
 }
 #qr-result__image img {
-  width: 300px;
-  height: 300px;
-  border-radius: 2rem;
+  border: 15px solid hsl(214, 37%, 96%);
+  border-radius: 10px;
 }
 #qr-result__download-share {
   display: flex;

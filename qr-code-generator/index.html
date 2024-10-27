@@ -10,28 +10,31 @@
 </head>
 
 <body>
-  <!-- <section id="home">
+  <section id="home">
     <div id="home__logo">
       <img src="img/logo-qr-generator.svg" alt="qr logo">
     </div>
     <div id="home__input-fields">
-      <input type="text" placeholder="Enter an URL">
-      <button>QR code</button>
+      <input type="text" placeholder="Enter an URL" id="input">
+      <button id="submit-qr">QR code</button>
     </div>
-  </section> -->
+  </section>
+
   <section id="qr-result">
     <div id="qr-result__logo">
       <img src="img/logo-qr-generator.svg" alt="">
     </div>
-    <div id="qr-result__image">
-        <img src="img/image.png" alt="">
+    <div id="image-container">
+      <div id="qr-result__image">
+      </div>
     </div>
     <div id="qr-result__download-share">
-      <button>Download <img src="img/circle-down-regular.svg" alt="download icon"></button>
-      <button>Share <img src="img/share-from-square-regular.svg" alt="share icon"></button>
+      <button id="download">Download <img src="img/circle-down-regular.svg" alt="download icon"></button>
+      <button id="share">Share <img src="img/share-from-square-regular.svg" alt="share icon"></button>
     </div>
 
   </section>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" integrity="sha512-CNgIRecGo7nphbeZ04Sc13ka07paqdeTu0WR1IM4kNcpmBAUSHSQX0FslNhTDadL4O5SAGapGt4FodqL8My0mA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="js/main.js"></script>
 </body>
-
 </html>

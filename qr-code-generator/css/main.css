@@ -132,6 +132,7 @@ body {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+  gap: 7px;
 }
 #home__input-fields input {
   background-color: transparent;

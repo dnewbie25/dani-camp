@@ -11,7 +11,6 @@ const shareBtn = document.getElementById('share')
  * @listens load
  */
 window.addEventListener('load', e => {
-  qrResult.style.display = 'none'
   input.value = ''
 })
 

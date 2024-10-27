@@ -105,6 +105,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 #home {
@@ -145,4 +146,63 @@ body {
   text-align: center;
   border-radius: 15px;
   padding: 0.5rem 2rem;
+}
+
+#qr-result {
+  margin: 2rem;
+  width: 700px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#qr-result__logo {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  font-size: 3rem;
+}
+#qr-result__logo img {
+  width: 140%;
+}
+#qr-result__image {
+  background: hsl(223, 47%, 23%);
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 3rem;
+}
+#qr-result__image img {
+  width: 300px;
+  height: 300px;
+  border-radius: 2rem;
+}
+#qr-result__download-share {
+  display: flex;
+  gap: 2rem;
+  justify-content: space-around;
+  font-size: 3rem;
+  text-align: center;
+  flex-wrap: wrap;
+}
+#qr-result__download-share button {
+  color: hsl(214, 37%, 96%);
+  font-weight: 900;
+  background-color: hsl(225, 76%, 55%);
+  padding: 1rem 2rem;
+  border-radius: 15px;
+  font-size: 1rem;
+}
+#qr-result__download-share button:hover {
+  cursor: pointer;
+  background-color: hsl(219, 73%, 78%);
+  transition: all 100ms;
+}
+#qr-result__download-share button img {
+  margin-left: 15px;
+  vertical-align: middle;
+  width: 1rem;
 }/*# sourceMappingURL=main.css.map */

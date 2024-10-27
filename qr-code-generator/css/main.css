@@ -86,41 +86,63 @@ video {
   padding: 0;
   border: 0;
   font-size: 100%;
-  font: "Outfit", sans-serif;
   vertical-align: baseline;
   box-sizing: border-box;
 }
 
+html {
+  height: 100%;
+  font-family: "Outfit", sans-serif;
+}
+
 body {
   background-color: hsl(228, 41%, 11%);
+  background-image: url("../img/bg-illustration.svg");
+  background-repeat: no-repeat;
+  background-size: auto auto;
+  background-position: left 60vw top 65%;
+  height: 100dvh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #home {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: repeat(12, 1fr);
-  gap: 32px;
-  margin: 72px;
+  margin: 2rem;
+  width: 700px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 #home__logo {
-  width: -moz-fit-content;
-  width: fit-content;
-  grid-column: 6/span 9;
-  grid-row: 5/6;
+  margin-bottom: 1rem;
+  font-size: 3rem;
+}
+#home__logo img {
+  width: 140%;
 }
 #home__input-fields {
-  grid-row: 6/7;
-  grid-column: 2/span 10;
+  font-size: 1.5rem;
+  border: 2px solid hsl(225, 76%, 55%);
+  padding: 0.5rem;
+  border-radius: 1rem;
+  width: 100%;
+  background-color: hsl(228, 41%, 11%);
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 7px;
 }
-
-@media (max-width <= 490px) {
-  #home__input-fields {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-  }
-  #home__input-fields input,
-  #home__input-fields button {
-    display: block;
-  }
+#home__input-fields input {
+  background-color: transparent;
+  color: hsl(214, 37%, 96%);
+  flex-grow: 2;
+}
+#home__input-fields button {
+  background-color: hsl(225, 76%, 55%);
+  color: hsl(214, 37%, 96%);
+  text-align: center;
+  border-radius: 15px;
+  padding: 0.5rem 2rem;
 }/*# sourceMappingURL=main.css.map */

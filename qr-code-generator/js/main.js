@@ -11,20 +11,29 @@ const shareBtn = document.getElementById('share')
  * @listens load
  */
 window.addEventListener('load', e => {
-  qrResult.style.visibility = 'collapse'
+  qrResult.style.display = 'none'
   input.value = ''
 })
 
 /**
- * Handles the event when the submit button is clicked.
+ * Handles the event when the submit button or Enter is clicked.
  * If the input field is not empty, it creates a QR code and displays it.
  * @listens click
+ * @listens keydown
  */
 qrSubmitBtn.addEventListener('click', () => {
   if (input.value) {
     createQR(input.value)
-    home.style.visibility = 'collapse'
-    qrResult.style.visibility = 'visible'
+    home.style.display = 'none'
+    qrResult.style.display = 'flex'
+  }
+})
+
+input.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter' && input.value) {
+    createQR(input.value)
+    home.style.display = 'none'
+    qrResult.style.display = 'flex'
   }
 })
 

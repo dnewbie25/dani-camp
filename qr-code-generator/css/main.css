@@ -147,6 +147,11 @@ body {
   border-radius: 15px;
   padding: 0.5rem 2rem;
 }
+#home__input-fields button:hover {
+  cursor: pointer;
+  background-color: hsl(219, 73%, 78%);
+  transition: all 100ms;
+}
 
 #qr-result {
   margin: 2rem;

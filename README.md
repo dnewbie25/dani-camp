@@ -66,3 +66,28 @@ This app is an npm package that you can install to retrieve basic data about a P
 
 [NPM Poké API](https://www.npmjs.com/package/npm-poke-api)
 </details>
+
+## Project 5: my-easy-date-formatter
+<details>
+<summary>Check out the details</summary>
+
+An npm package aimed to help formatting dates into a more human-friendly way.
+
+### Link to NPM Package
+
+[my-easy-date-formatter](https://www.npmjs.com/package/my-easy-date-formatter)
+</details>
+
+## Project 6: QR Code Generator
+<details>
+<summary>Check out the details</summary>
+
+
+### Preview
+
+![Untitled video - Made with Clipchamp (1)](https://github.com/user-attachments/assets/15dadd73-7c95-4aba-ac8f-8d3df90074a6)
+
+### Link to Demo
+
+[QR Code Generator](https://my-qr-code-devchallenge.netlify.app/)
+</details>

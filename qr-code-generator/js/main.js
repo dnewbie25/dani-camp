@@ -38,6 +38,17 @@ downloadBtn.addEventListener('click', () => {
 })
 
 /**
+ * Shares the QR code image.
+ * @listens click
+ * @param {string} qrImageSrc - The URL of the QR code image.
+ */
+shareBtn.addEventListener('click', () => {
+  const qrImageSrc = qrImage.childNodes[2].src
+  shareQR(qrImageSrc)
+  alert('QR Code copied to cliboard successfully!')
+})
+
+/**
  * Generates a QR code and appends it to the specified container.
  * @param {string} value - The text or URL to encode in the QR code.
  */
@@ -66,4 +77,25 @@ async function downloadQR (imageSrc) {
   document.body.appendChild(link)
   link.click()
   document.body.removeChild(link)
+}
+
+/**
+ * Copies the QR code image to the clipboard.
+ * @param {string} imageSrc - The URL of the QR code image.
+ * @returns {Promise<void>} A promise that resolves when the image is copied to the clipboard.
+ * @throws Will log an error message if the image cannot be fetched or copied.
+ */
+async function shareQR (imageSrc) {
+  try {
+    const data = await fetch(imageSrc)
+    const blob = await data.blob()
+    await navigator.clipboard.write([
+      new ClipboardItem({
+        [blob.type]: blob
+      })
+    ])
+    console.log('Image copied.')
+  } catch (err) {
+    console.error(err.name, err.message)
+  }
 }

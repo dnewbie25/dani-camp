@@ -78,7 +78,11 @@ formElement.addEventListener('submit', function(e) {
   lastDate.value = new Date().toISOString().split('T')[0];
 });
 
-// Function to calculate days worked
+/**
+ * Converts given hours into days and hours.
+ * @param {number} hours - Total hours to convert
+ * @returns {string} Formatted string of days and hours, e.g. "2 days 1.5 hours"
+ */
 function daysWorked(hours) {
   const days = Math.floor(hours / 8);
   const remainingHours = (hours % 8).toFixed(1);
@@ -92,7 +96,13 @@ function daysWorked(hours) {
   return timeString.trim();
 }
 
-// Function to calculate days active
+/**
+ * Calculates the number of days active for an employee.
+ * @param {string} startDate - Contract start date in format 'YYYY-MM-DD'
+ * @param {string} lastDate - Contract last date in format 'YYYY-MM-DD' (optional)
+ * @param {string} isActive - Boolean value indicating if the employee is active ('yes' or 'no')
+ * @returns {number} Number of days active
+ */
 function daysActive(startDate, lastDate, isActive) {
   const endDate = isActive === 'yes' ? new Date() : new Date(lastDate);
   const milliseconds = Math.abs(endDate - new Date(startDate));
@@ -100,7 +110,11 @@ function daysActive(startDate, lastDate, isActive) {
   return days;
 }
 
-// Function to calculate age
+/**
+ * Calculates a person's age from their birthday.
+ * @param {string} birthday - Birthday in format 'YYYY-MM-DD'
+ * @returns {string} Age in years, or 'Invalid birthday' if the birthday is in the future
+ */
 function calculateAge(birthday) {
   const currentDate = new Date();
   const birthdayDate = new Date(birthday);
@@ -112,14 +126,35 @@ function calculateAge(birthday) {
   return `${Math.abs(ageDate.getUTCFullYear() - 1970)} years old`;
 }
 
-// Function to calculate severance pay
+/**
+ * Calculates the severance pay for an employee.
+ * 
+ * @param {number} salaryPerHour - The hourly salary of the employee.
+ * @param {number} daysActive - The total number of days the employee was active.
+ * @returns {string} - The calculated severance pay formatted as a currency string.
+ */
 function calculateSeverancePay(salaryPerHour, daysActive) {
   const dailySalary = salaryPerHour * 8;
   const severancePay = dailySalary * daysActive * SEVERANCE_RATE;
   return `$${severancePay.toFixed(2)}`;
 }
 
-// Function to update the table
+/**
+ * Updates the table with a new employee's data.
+ * @param {Object} employee - The employee's data with the following properties:
+ *   - firstName: string
+ *   - lastName: string
+ *   - birthday: string
+ *   - age: string
+ *   - salaryHour: string
+ *   - hoursWorked: string
+ *   - daysWorked: string
+ *   - startDate: string
+ *   - active: string ('yes' or 'no')
+ *   - lastDate: string
+ *   - daysActive: number
+ *   - severancePay: string
+ */
 function updateTable(employee) {
   const tableBody = table.getElementsByTagName('tbody')[0];
   const tableRow = tableBody.insertRow(-1);

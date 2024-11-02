@@ -2,3 +2,5 @@
 */package-lock.json
 .vscode
 .DS_Store
+test-basics/*/node_modules/
+test-basics/*/package-lock.json

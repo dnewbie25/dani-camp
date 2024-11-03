@@ -185,3 +185,11 @@ function updateTable(employee) {
   daysActiveCell.innerHTML = `${employee.daysActive} day${employee.daysActive !== 1 ? 's' : ''}`;
   severancePayCell.innerHTML = employee.severancePay;
 }
+
+// function exports for the test
+module.exports = {
+  daysWorked,
+  daysActive,
+  calculateAge,
+  calculateSeverancePay,
+};

@@ -1,4 +1,3 @@
-export function transformToNumber(value) {
-  return +value;
+export function transformToNumber (value) {
+  return +value
 }
-

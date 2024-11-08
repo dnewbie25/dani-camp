@@ -6,7 +6,8 @@
   "scripts": {
     "build": "babel src/ -d lib/",
     "prepublish": "yarn run build",
-    "flow": "flow"
+    "flow": "flow",
+    "test": "vitest"
   },
   "keywords": [],
   "author": "",

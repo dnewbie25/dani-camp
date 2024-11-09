@@ -4,20 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "babel src/ -d lib/",
-    "prepublish": "yarn run build",
-    "flow": "flow",
     "test": "vitest"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@babel/cli": "^7.25.9",
-    "@babel/core": "^7.26.0",
-    "@babel/preset-flow": "^7.25.9",
-    "babel-plugin-syntax-hermes-parser": "^0.25.0",
-    "flow-bin": "^0.252.0",
     "standard": "^17.1.2",
     "vitest": "^2.1.4"
   },

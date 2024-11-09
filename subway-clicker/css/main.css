@@ -160,6 +160,7 @@ main img:hover {
 }
 main img:active {
   filter: drop-shadow(rgba(255, 200, 0, 0.267) 3px 3px 1px);
+  transform: scale(0.9);
 }
 main #toppings {
   width: 100%;

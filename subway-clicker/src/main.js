@@ -17,7 +17,7 @@ const biteSound = new Audio('./img/mmmm-102363.mp3')
 
 subway.addEventListener('click', () => {
   currentValue += 1
-  total.textContent = Math.round(numberFormat(currentValue))
+  total.textContent = numberFormat(Math.round(currentValue))
   biteSound.play()
   setTimeout(() => {
     biteSound.pause()
@@ -55,8 +55,8 @@ setInterval(() => {
     rate.textContent = 0
   } else {
     currentValue += (subsPerSecond)
-    total.textContent = Math.round(currentValue)
-    rate.textContent = subsPerSecond
+    total.textContent = numberFormat(Math.round(currentValue))
+    rate.textContent = numberFormat(subsPerSecond)
     console.log('subs per second is', subsPerSecond)
   }
 }, 1000)

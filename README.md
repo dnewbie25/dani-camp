@@ -91,3 +91,16 @@ An npm package aimed to help formatting dates into a more human-friendly way.
 
 [QR Code Generator](https://my-qr-code-devchallenge.netlify.app/)
 </details>
+
+## Project 7: Subway Clicker
+<details>
+<summary>Check out the details</summary>
+
+### Preview
+
+![firefox_DSfxXGP4Gm](https://github.com/user-attachments/assets/590a8a8c-2db3-4b6b-aeb5-ad466b364ef3)
+
+### Link to Demo
+
+[Subway Clicker](https://subway-clicker.netlify.app/)
+</details>

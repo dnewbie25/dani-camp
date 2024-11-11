@@ -25,7 +25,7 @@ Each topping has a different modification value that corresponds to a portion of
 - Onions: `0.07`
 - Roast Beef: `0.1`
 
-All styles were handled using `SAAS` to compile to a `CSS` file in the path `css/main.css`.
+All styles were handled using `SASS` to compile to a `CSS` file in the path `css/main.css`.
 
 Although the code is mostly handled with `setTimeout` for the sound and `setInterval` for the subs/second feature, there is a function that takes the values and modifies them to be formatted in a standard decimal representation of a comma every three decimal places. The function is called `numberFormat`.
 

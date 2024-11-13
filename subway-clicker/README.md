@@ -1,4 +1,4 @@
-# Subway Clicker v1.0
+# Subway Clicker v1.1.0
 
 This app counts how many clicks you can make. You can help yourself to the toppings to increase your clicks per second.
 

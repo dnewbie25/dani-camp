@@ -63,4 +63,6 @@ setInterval(() => {
     total.textContent = numberFormat(Math.round(currentValue))
     rate.textContent = numberFormat(subsPerSecond)
   }
+  document.title = `${currentValue} subs - Subway Clicker`
 }, 1000)
+

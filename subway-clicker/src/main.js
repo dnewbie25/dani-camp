@@ -16,7 +16,7 @@ const toppings = {
   toppings__4: 0.1
 }
 
-const biteSound = new Audio('./img/mmmm-102363.mp3')
+const biteSound = new Audio('./assets/mmmm-102363.mp3')
 
 /**
  * Handles the event when the subway image is clicked.

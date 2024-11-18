@@ -105,6 +105,10 @@ body{
   align-items: center;
   background-color: $background;
   color: antiquewhite;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
 }
 
 span{

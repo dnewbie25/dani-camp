@@ -4,7 +4,7 @@ This app is very basic but its main purpose was to understand how to work with T
 
 ## Live Preview
 
-
+_[ToDo App](https://playful-pastelito-d60a65.netlify.app/)_
 
 ## Required NPM packages
 
@@ -16,7 +16,7 @@ This app is very basic but its main purpose was to understand how to work with T
 ## How it works
 
 The source code inside the `src` folder gets bundled into a `dist` folder. The Typescript file called `index.ts` is then compiled into that same folder as `main.js`, which will serve the JavaScript code to the index.html file. 
-The `index.html` file inside `src` will be added into the `dist` folder thanks to the `copy-webpack-plugin`, which will add a copy of it into that folder when bundling.
+The `index.html` file inside `src` will be added to the `dist` folder thanks to the `copy-webpack-plugin`, which will add a copy of it into that folder when bundling.
 
 ## Credits
 

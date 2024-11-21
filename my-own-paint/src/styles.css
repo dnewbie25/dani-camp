@@ -1,62 +1,3 @@
-/* * {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-}
-
-html{
-  height: 100%;
-  font-family: sans-serif;
-}
-
-body {
-  line-height: 1;
-}
-
-ol, ul {
-  list-style: none;
-}
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
-caption, th, td {
-  text-align: left;
-  font-weight: normal;
-  vertical-align: middle;
-}
-
-q, blockquote {
-  quotes: none;
-}
-
-q:before, q:after, blockquote:before, blockquote:after {
-  content: "";
-}
-
-a img {
-  border: none;
-}
-  
-*/
-
-/* Styles here */
-/* body{
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-#canvas{
-  border:1px solid black;
-} */
 
 /* Reset and base styles */
 * {
@@ -65,6 +6,7 @@ a img {
   box-sizing: border-box;
 }
 
+/* styles */
 html {
   height: 100%;
   font-family: 'Arial', sans-serif;
@@ -73,8 +15,8 @@ html {
 }
 
 body {
-  height: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   background: #383131;
@@ -88,8 +30,12 @@ main {
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   width: 90%;
+  height: 750px;
   max-width: 800px;
-  
+  margin: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 header {
@@ -114,12 +60,67 @@ header span {
 
 #canvas {
   display: block;
-  margin: 0 auto;
+  margin: 1rem auto;
   border: 2px dashed #007BFF;
   border-radius: 8px;
   background: #fafafa;
+  width: 100%;
+  max-height: 600px;
+  object-fit: contain;
+  flex-grow: 2;
 }
 
 #canvas:hover {
   background: #f0f8ff;
+}
+
+#palette button{
+  width: 30px;
+  height: 30px;
+  border-radius: 3px;
+  border: 1px solid black;
+  text-align: center;
+  vertical-align: middle;
+}
+
+button:hover{
+  cursor: pointer;
+}
+
+button:active{
+  background-color: #555;
+}
+
+#palette #red{
+  background-color: red;
+}
+#palette #red:hover{
+  background-color: rgba(255, 0, 0, 0.589);
+}
+#palette #blue{
+  background-color: blue;
+}
+#palette #blue:hover{
+  background-color: rgba(50, 85, 241, 0.527);
+}
+#palette #white{
+  background-color: white;
+}
+#palette #white:hover{
+  background-color: rgb(211, 203, 203);
+}
+#palette #black{
+  background-color: black;
+}
+#palette #black:hover{
+  background-color: rgb(68, 56, 56);
+}
+#palette #green{
+  background-color: green;
+}
+#palette #green:hover{
+  background-color: rgba(0, 128, 0, 0.37);
+}
+#palette #eraser:hover{
+  background-color: rgba(233, 53, 128, 0.404);
 }

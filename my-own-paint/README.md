@@ -6,6 +6,10 @@ This app is my own version of the popular `Paint` app, created using the `HTML C
 
 [My Own Paint](https://my-own-paint.netlify.app/)
 
+## Preview
+
+![msedge_04gi8dNi48](https://github.com/user-attachments/assets/1348507b-0ea1-4b56-a25e-fffe828db60b)
+
 ## Tech Stack
 
 - TypeScript

@@ -104,3 +104,17 @@ An npm package aimed to help formatting dates into a more human-friendly way.
 
 [Subway Clicker](https://subway-clicker.netlify.app/)
 </details>
+
+## Project 8: My Own Paint
+<details>
+<summary>Check out the details</summary>
+
+### Preview
+
+![msedge_04gi8dNi48](https://github.com/user-attachments/assets/cac205b0-9a27-4a46-8564-f947be014de6)
+
+
+### Link to Demo
+
+[My Own Paint](https://my-own-paint.netlify.app/)
+</details>

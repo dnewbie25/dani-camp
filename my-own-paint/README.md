@@ -16,7 +16,7 @@ This app is my own version of the popular `Paint` app, created using the `HTML C
 - CSS
 - HTML
 - Webpack (bundling)
-- Typescript Standard (library for type checking based on StandardJS)
+- Typescript Standard (library for linting based on StandardJS)
 
 ## How to Use
 

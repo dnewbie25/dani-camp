@@ -1,7 +1,7 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-## ## [1.1.0] - 11-22-2024
+## [1.1.0] - 11-22-2024
 ### Added
 
 - There is a row with a color palette and an eraser button. Now you can choose which color to use to draw.

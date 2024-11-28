@@ -12,7 +12,6 @@ canvas.addEventListener('mousedown', startDrawing)
 canvas.addEventListener('mouseup', stopDrawing)
 canvas.addEventListener('mousemove', draw)
 canvas.addEventListener('mouseleave', stopDrawing)
-
 // the default stroke color is black
 let strokeColor = 'black'
 
@@ -22,7 +21,7 @@ let strokeColor = 'black'
  * @listens window.resize
  */
 window.addEventListener('resize', () => {
-  setCanvasSize()
+  setCanvasSize();
 })
 
 /**
@@ -31,7 +30,7 @@ window.addEventListener('resize', () => {
  * @listens window.load
  */
 window.addEventListener('load', () => {
-  setCanvasSize()
+  setCanvasSize();
 })
 
 /**
@@ -84,9 +83,8 @@ function draw (event: MouseEvent) {
  * The canvas needs to have its internal size set to be able to draw on it
  */
 function setCanvasSize () {
-  const canvasStyle = getComputedStyle(canvas)
-  const width = parseInt(canvasStyle.width)
-  const height = parseInt(canvasStyle.height)
+  const width = canvas.clientWidth;
+  const height = canvas.clientHeight;
   // it is required to set the canvas internal size
   canvas.width = width
   canvas.height = height

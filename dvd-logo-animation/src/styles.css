@@ -1,0 +1,50 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  overflow: hidden;
+  background-color: rgb(26, 25, 25);
+}
+
+#container{
+  position: relative;
+}
+
+#logo{
+  position: absolute;
+  width: 250px;
+  color: red;
+}
+
+/* Rainbow animation */
+#logo {
+  animation: colorRotate 6s linear 0s infinite;
+}
+
+@keyframes colorRotate {
+  from {
+      background-color: rgb(255, 0, 0);
+  }
+  16.6% {
+      background-color: rgb(255, 0, 255);
+  }
+  33.3% {
+      background-color: rgb(0, 0, 255);
+  }
+  50% {
+      background-color: rgb(0, 255, 255);
+  }
+  66.6% {
+      background-color: rgb(0, 255, 0);
+  }
+  83.3% {
+      background-color: rgb(255, 255, 0);
+  }
+  to {
+      background-color: rgb(255, 0, 0);
+  }
+}

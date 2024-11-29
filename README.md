@@ -118,3 +118,16 @@ An npm package aimed to help formatting dates into a more human-friendly way.
 
 [My Own Paint](https://my-own-paint.netlify.app/)
 </details>
+
+## Project 9: DVD Logo Animation
+<details>
+<summary>Check out the details</summary>
+
+### Preview
+
+![msedge_AOGc5JsM38](https://github.com/user-attachments/assets/dea27cc1-f806-4c59-a637-a213ff4de24d)
+
+### Link to Demo
+
+[DVD Logo Animation](https://dvd-logo-animation.netlify.app/)
+</details>

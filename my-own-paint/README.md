@@ -1,4 +1,4 @@
-# My Own Paint - v.1.1.0
+# My Own Paint - v.1.2.0
 
 This app is my own version of the popular `Paint` app, created using the `HTML Canvas element` so it can be used from the browser.
 
@@ -8,7 +8,7 @@ This app is my own version of the popular `Paint` app, created using the `HTML C
 
 ## Preview
 
-![msedge_04gi8dNi48](https://github.com/user-attachments/assets/1348507b-0ea1-4b56-a25e-fffe828db60b)
+![msedge_koQe4eY2Pe](https://github.com/user-attachments/assets/1a27b05d-7f43-42fa-8bae-43f0501ded45)
 
 ## Tech Stack
 
@@ -20,6 +20,6 @@ This app is my own version of the popular `Paint` app, created using the `HTML C
 
 ## How to Use
 
-You can draw inside the canvas marked by the dotted blue line. You can select a color to draw or click the `Eraser` button at the right to clean the whole canvas. After clearing the canvas, the color will remain as the last color selected.
+You can draw inside the canvas marked by the dotted blue line. You can select a color to draw, click the `Eraser` button to erase portions of the drawing or click the `Trash` button to clear the whole canvas. After clearing the canvas, the color will reset to black.
 
-Keep in mind that if you resize the page, you will loose your progress, as resizing while working is not yet supported.
+Remember that if you resize or refresh the page, you will lose your progress, as the app does not save the drawing.

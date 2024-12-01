@@ -93,6 +93,7 @@ paletteBtns.forEach(button => {
   button.addEventListener('click', () => {
     if (button.id === 'trash') {
       setCanvasSize()
+      strokeColor = 'black'
     } else if (button.id === 'eraser'){
       strokeColor = '#fafafa'
     }else{

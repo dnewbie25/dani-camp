@@ -74,6 +74,14 @@ header span {
   background: #f0f8ff;
 }
 
+#palette{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
 #palette button{
   width: 30px;
   height: 30px;
@@ -91,6 +99,10 @@ button:active{
   background-color: #555;
 }
 
+#trash img{
+  width: 100%;
+}
+
 #palette #red{
   background-color: red;
 }
@@ -103,11 +115,11 @@ button:active{
 #palette #blue:hover{
   background-color: rgba(50, 85, 241, 0.527);
 }
-#palette #white{
-  background-color: white;
+#palette #eraser{
+  background-color: #fafafa;
 }
-#palette #white:hover{
-  background-color: rgb(211, 203, 203);
+#palette #eraser:hover{
+  background-color: rgb(199, 194, 194);
 }
 #palette #black{
   background-color: black;
@@ -121,6 +133,6 @@ button:active{
 #palette #green:hover{
   background-color: rgba(0, 128, 0, 0.37);
 }
-#palette #eraser:hover{
+#palette #trash:hover{
   background-color: rgba(233, 53, 128, 0.404);
 }

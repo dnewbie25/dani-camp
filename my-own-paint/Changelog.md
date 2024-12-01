@@ -1,6 +1,16 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.2.0] - 12-01-2024
+### Added
+
+- A new `Stroke Width` area, where you can select the stroke width from `1px` to `150px`
+
+### Changed
+
+- The `Eraser` button now deletes portions of the lines. You can set the width of the portions you want to delete
+- The former `Eraser` button, which deleted all the canvas elements was changed and its functionality was assigned to the `Trash` button. It erases all the content when clicked, it is identified with a trash can icon.
+
 ## [1.1.0] - 11-22-2024
 ### Added
 

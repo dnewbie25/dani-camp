@@ -3,6 +3,7 @@ import './styles.css'
 const canvas = <HTMLCanvasElement>document.querySelector('#canvas')
 const canvasLines = canvas.getContext('2d')
 const paletteBtns = document.querySelectorAll('button')
+const lineWidthInput = <HTMLInputElement>document.getElementById('stroke-width');
 
 let isDrawing = false
 let startX: number, startY: number
@@ -14,22 +15,14 @@ canvas.addEventListener('mousemove', draw)
 canvas.addEventListener('mouseleave', stopDrawing)
 // the default stroke color is black
 let strokeColor = 'black'
-
+let lineWidth = 1;
+setCanvasSize()
 /**
  * Listens for the window resize event and sets the canvas size when it is triggered.
  * It ensures that the canvas size is adjusted when the window is resized.
  * @listens window.resize
  */
 window.addEventListener('resize', () => {
-  setCanvasSize();
-})
-
-/**
- * Listens for the window load event and sets the canvas size when it is triggered.
- * It ensures that the canvas size is adjusted when the window is first loaded.
- * @listens window.load
- */
-window.addEventListener('load', () => {
   setCanvasSize();
 })
 
@@ -69,6 +62,7 @@ function stopDrawing (event: MouseEvent) {
 function draw (event: MouseEvent) {
   if (isDrawing) {
     const { offsetX, offsetY } = event
+    canvasLines.lineWidth = strokeWidth();
     canvasLines.strokeStyle = strokeColor
     canvasLines.beginPath()
     canvasLines.moveTo(lastX, lastY)
@@ -97,10 +91,22 @@ function setCanvasSize () {
  */
 paletteBtns.forEach(button => {
   button.addEventListener('click', () => {
-    if (button.id === 'eraser') {
+    if (button.id === 'trash') {
       setCanvasSize()
-    } else {
+    } else if (button.id === 'eraser'){
+      strokeColor = '#fafafa'
+    }else{
       strokeColor = button.id
     }
   })
 })
+
+/**
+ * Retrieves the stroke width value from the input element and updates the line width.
+ * Converts the input string value to a number and returns it as the new line width.
+ * @returns {number} The current stroke width value.
+ */
+function strokeWidth(){
+  lineWidth = +lineWidthInput.value;
+  return lineWidth
+}

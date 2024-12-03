@@ -68,6 +68,7 @@ header span {
   height: 100vh;
   object-fit: contain;
   flex-grow: 2;
+  touch-action: none;
 }
 
 #canvas:hover {

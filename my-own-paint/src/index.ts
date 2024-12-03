@@ -13,6 +13,50 @@ canvas.addEventListener('mousedown', startDrawing)
 canvas.addEventListener('mouseup', stopDrawing)
 canvas.addEventListener('mousemove', draw)
 canvas.addEventListener('mouseleave', stopDrawing)
+
+// Touch controls
+canvas.addEventListener("touchstart", (e) => {
+  const touch = e.touches?.[0]
+  if (!touch) {
+      return
+  }
+  isDrawing = true
+  startX = touch.clientX
+  startY = touch.clientY
+  lastX = touch.clientX
+  lastY = touch.clientY
+})
+
+canvas.addEventListener("touchend", (e) => {
+  const touch = e.touches?.[0]
+  if (!touch) {
+    return
+  }
+  startX = touch.clientX
+  startY = touch.clientY
+  lastX = touch.clientX
+  lastY = touch.clientY
+  isDrawing = false
+})
+
+canvas.addEventListener('touchmove', (e)=>{
+  const touch = e.touches?.[0]
+  if (!touch) {
+    return
+  }
+  if (isDrawing) {
+    const offsetX = touch.clientX
+    const offsetY = touch.clientY
+    canvasLines.lineWidth = strokeWidth();
+    canvasLines.strokeStyle = strokeColor
+    canvasLines.beginPath()
+    canvasLines.moveTo(lastX, lastY)
+    canvasLines.lineTo(offsetX, offsetY)
+    canvasLines.stroke();
+    [lastX, lastY] = [offsetX, offsetY]
+  }
+})
+
 // the default stroke color is black
 let strokeColor = 'black'
 let lineWidth = 1;

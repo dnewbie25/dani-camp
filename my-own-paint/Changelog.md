@@ -1,6 +1,16 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.3.0] - 12-03-2024
+
+### Added
+
+- Touch controls for mobile devices, although they are still unprecised when it comes to draw the lines. When doing a scroll the lines are getting erased.
+
+### Fixed
+
+- Scrolling when using touch controls. It is now set to prevent that scroll to allow drawing. This was achieve by setting `touch-action: none` in the canvas CSS styling for the `#canvas` selector.
+
 ## [1.2.0] - 12-01-2024
 ### Added
 

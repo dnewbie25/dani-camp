@@ -1,39 +1,88 @@
-import numpy as np
+
+# Part 1
+def search_word(grid):
+  keyword = "XMAS"
+  target_length = 4
+  count = 0
+  rows = len(grid)
+  cols = len(grid[0])
+  def is_valid_direction(row, col, dr, dc):
+    for i in range(target_length):
+        r = row + i * dr
+        c = col + i * dc
+        if not (0 <= r < rows and 0 <= c < cols) or grid[r][c] != keyword[i]:
+            return False
+    return True
+
+  for row in range(rows):
+      for col in range(cols):
+          directions = [(0, 1), (0, -1), (1, 0), (-1, 0), (1, 1), (1, -1), (-1, 1), (-1, -1)]
+          for dr, dc in directions:
+              if is_valid_direction(row, col, dr, dc):
+                  count += 1
+
+  return count
+
+# Part 2
+def solution2(input):
+
+    def safe_grid_get(grid, r, c):
+        if 0 <= r < len(grid) and 0 <= c < len(grid[0]):
+            return grid[r][c]
+        return None
+
+    search = input
+    count = 0
+
+    for r in range(len(search)):
+        for c in range(len(search[r])):
+            if search[r][c] == 'A':
+                # Pattern 1
+                if (
+                    safe_grid_get(search, r - 1, c - 1) == 'M' and
+                    safe_grid_get(search, r - 1, c + 1) == 'M' and
+                    safe_grid_get(search, r + 1, c - 1) == 'S' and
+                    safe_grid_get(search, r + 1, c + 1) == 'S'
+                ):
+                    count += 1
+
+                # Pattern 2
+                if (
+                    safe_grid_get(search, r - 1, c - 1) == 'S' and
+                    safe_grid_get(search, r - 1, c + 1) == 'S' and
+                    safe_grid_get(search, r + 1, c - 1) == 'M' and
+                    safe_grid_get(search, r + 1, c + 1) == 'M'
+                ):
+                    count += 1
+
+                # Pattern 3
+                if (
+                    safe_grid_get(search, r - 1, c - 1) == 'S' and
+                    safe_grid_get(search, r - 1, c + 1) == 'M' and
+                    safe_grid_get(search, r + 1, c - 1) == 'S' and
+                    safe_grid_get(search, r + 1, c + 1) == 'M'
+                ):
+                    count += 1
+
+                # Pattern 4
+                if (
+                    safe_grid_get(search, r - 1, c - 1) == 'M' and
+                    safe_grid_get(search, r - 1, c + 1) == 'S' and
+                    safe_grid_get(search, r + 1, c - 1) == 'M' and
+                    safe_grid_get(search, r + 1, c + 1) == 'S'
+                ):
+                    count += 1
+
+    return count
 
 
-letters_ordered = 'AMSX'
-total_horizontal = 0
-total_vertical = 0
-total_diagonals = 0
-
-with open('test.txt','r') as file:
-  lines = file.readlines()
+with open('input-day-4.txt','r') as file:
+  lines = file.read().strip().splitlines()
   array = []
-  # this is for diagonals
   for line in lines:
-    array.append(list(line.strip()))
-  matrix = np.array(array)
-  diags = [matrix[::-1,:].diagonal(i) for i in range(-matrix.shape[0]+1,matrix.shape[1])]  
-  # diags.extend(matrix.diagonal(i) for i in range(matrix.shape[1]-1,-matrix.shape[0],-1))
-  #print([n.tolist() for n in diags])
+    array.append(list(line))
+  count = search_word(array)
+  print(count)
 
-
-  # mas bien crear un array que contenga la primera letra e itere con cada otra letra. 4 loops basicamente, si se forma XMAS, es una horizontal valida
-  # lo mismo para las verticales
-  for element in diags:
-    #print(element)
-    if len(element) >= 4:
-      for col in range(len(element)):
-        if ''.join(sorted(element[col:col+4])) == letters_ordered:
-          print(element[col:col+4], 'diagonal')
-          total_diagonals += 1
-  # this way I can get vertical and horizontals
-  for row in range(len(lines)-4):
-    for col in range(len(lines[row])):
-      if ''.join(sorted(lines[row][col:col+4])) == letters_ordered:
-          print(lines[row][col:col+4],'horizontal')
-          total_horizontal += 1
-      if ''.join(sorted(lines[row][col]+lines[row+1][col]+lines[row+2][col]+lines[row+3][col])) == letters_ordered:
-          print(lines[row][col]+lines[row+1][col]+lines[row+2][col]+lines[row+3][col],'vertical')
-          total_vertical += 1
-  print(total_horizontal + total_vertical + total_diagonals)
+  count2 = solution2(array)
+  print(count2)

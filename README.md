@@ -131,3 +131,16 @@ An npm package aimed to help formatting dates into a more human-friendly way.
 
 [DVD Logo Animation](https://dvd-logo-animation.netlify.app/)
 </details>
+
+## Project 10: Zodiac Sign Finder
+<details>
+<summary>Check out the details</summary>
+
+### Preview
+
+![msedge_btEpo4OpBn](https://github.com/user-attachments/assets/6b501a90-c321-46e8-83f7-f9e1611a8ff5)
+
+### Link to Demo
+
+[Zodiac Sign Finder](https://what-is-my-zodiac-sign.netlify.app/)
+</details>

@@ -1,12 +1,17 @@
-import { useState } from "react";
+import {useState } from "react";
+import IngredientsList from "./components/IngredientsList";
+import ClaudeRecipe from "./components/ClaudeRecipe"
+import { getClaudeRecipe } from "./claude_fetch";
 
 export default function Main_app() {
-  const [ingredients, setIngredients] = useState([]);
+  const [ingredients, setIngredients] = useState(["tomatoe","pasta","corn","japaleños"]);
 
-  const ingredientsList = ingredients.map((item) => {
-    return <li>{item}</li>;
-  });
+  const [recipe, setRecipe] = useState("")
 
+  async function handleRecipe() {
+    const recipeResult = await getClaudeRecipe(ingredients)
+    setRecipe(recipeResult)
+  }
   function handleSubmit(formData) {
     const newIngredient = formData.get("ingredient");
     setIngredients((previousList) => [...previousList, newIngredient]);
@@ -26,18 +31,8 @@ export default function Main_app() {
       {ingredients.length > 0 && (
         <section>
           <h2>Ingredients on hand:</h2>
-          <ul className="ingredients-list" aria-live="polite">
-            {ingredientsList}
-          </ul>
-          {ingredients.length > 3 && (
-            <div className="get-recipe-container">
-              <div>
-                <h3>Ready for a recipe?</h3>
-                <p>Generate a recipe from your list of ingredients.</p>
-              </div>
-              <button>Get a recipe</button>
-            </div>
-          )}
+          <IngredientsList ingredients={ingredients} getRecipe={handleRecipe}/> 
+          {recipe && <ClaudeRecipe recipe={recipe}/>}
         </section>
       )}
     </main>

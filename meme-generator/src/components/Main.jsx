@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 export default function Main() {
     // the goal here is that with every keystroke, the meme changes
     const [meme, setMeme] = useState({
@@ -6,6 +6,14 @@ export default function Main() {
         bottomText:'Walk into Mordor',
         imageURL:'http://i.imgflip.com/1bij.jpg'
     })
+
+    const [allMemes, setAllMemes] = useState([])
+
+    useEffect(() => {
+        fetch("https://api.imgflip.com/get_memes")
+            .then(res => res.json())
+            .then(data => setAllMemes(data.data.memes))
+    }, [])
 
     function handleChange(event){
         const {value} = event.target
@@ -24,6 +32,7 @@ export default function Main() {
                         placeholder="One does not simply"
                         name="topText"
                         onChange={handleChange}
+                        value={meme.topText}
                     />
                 </label>
 
@@ -33,6 +42,7 @@ export default function Main() {
                         placeholder="Walk into Mordor"
                         name="bottomText"
                         onChange={handleChange}
+                        value={meme.bottomText}
                     />
                 </label>
                 <button>Get a new meme image 🖼</button>

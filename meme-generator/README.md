@@ -8,7 +8,7 @@ A web application that generates basic $$memes with customizable text and images
 
 ## Link to Demo
 
-
+[Meme Generator](https://meme-generator-dani-camp.netlify.app/)
 
 ## What it does
 
@@ -38,12 +38,3 @@ The Meme Generator allows users to create and share funny memes by adding text t
 * Randomly select images from a pre-loaded library
 * Real-time updates to the display
 * Simple and intuitive user interface
-
-## Getting started
-
-1. Clone the repository to your local machine
-2. Install dependencies using `npm install`
-3. Start the application using `npm start`
-4. Open your web browser and navigate to `http://localhost:3000` to use the Meme Generator
-
-Note: This is a basic README file, and you may want to add more details such as screenshots, installation instructions, and contribution guidelines depending on your project's needs.

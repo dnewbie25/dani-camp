@@ -144,3 +144,16 @@ An npm package aimed to help formatting dates into a more human-friendly way.
 
 [Zodiac Sign Finder](https://what-is-my-zodiac-sign.netlify.app/)
 </details>
+
+## Project 11: Meme Generator
+<details>
+<summary>Check out the details</summary>
+
+### Preview
+
+![Screen Recording 2025-03-29 at 7 31 22 PM](https://github.com/user-attachments/assets/b9dae92b-10a1-485e-ab51-ed5ccbd0e488)
+
+### Link to Demo
+
+[Meme Generator](https://meme-generator-dani-camp.netlify.app/)
+</details>

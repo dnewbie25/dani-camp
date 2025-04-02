@@ -61,3 +61,14 @@ main {
   justify-content: center;
   align-items: center;
 }
+
+button.roll-dice {
+  height: 50px;
+  width: 100px;
+  border: none;
+  border-radius: 6px;
+  background-color: #5035FF;
+  color: white;
+  font-size: 1.2rem;
+  margin-top: 1rem;
+}

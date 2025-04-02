@@ -38,6 +38,16 @@ main {
   align-items: center;
 }
 
+.title {
+  font-size: 40px;
+  text-align: center;
+}
+
+.instructions{
+  text-align: center;
+  margin: 20px auto;
+}
+
 .dice-container {
   display: grid;
   grid-template: auto auto / repeat(5, 1fr);

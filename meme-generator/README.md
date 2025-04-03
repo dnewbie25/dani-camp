@@ -2,7 +2,7 @@
 
 A web application that generates basic $$memes with customizable text and images.
 
-## Live Preview
+## Preview
 
 ![preview](./src/images/preview.png)
 

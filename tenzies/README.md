@@ -1,12 +1,28 @@
-# React + Vite
+# Tenzie
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple dice rolling game where you need to roll the same number ten times in a row.
 
-Currently, two official plugins are available:
+## Preview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![Preview](./preview.png)
 
-## Expanding the ESLint configuration
+## Live to Demo
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+[Tenzie](https://tenzie-dani-camp.netlify.app/)
+
+## How to Play
+
+1. Click on the "Roll" button to roll the dice.
+2. If any of the dice match, they will be locked in place.
+3. Continue rolling until you get the same number ten times in a row.
+4. If you make a mistake, you can unselect the desired dice, or if you want to start over, click on the "Roll" or "New Game" button.
+
+## Technologies Used
+
+* **Front-end:** React, JavaScript, CSS
+* **Back-end:** None (client-side only)
+* **Libraries:**
+	+ React for building the user interface and handling state changes
+* **Tools:**
+	+ Vite for building and serving the application
+	+ ESLint for code linting and formatting

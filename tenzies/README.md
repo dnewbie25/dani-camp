@@ -8,7 +8,7 @@ A simple dice rolling game where you need to roll the same number ten times in a
 
 ## Live to Demo
 
-[Tenzie](https://tenzie-dani-camp.netlify.app/)
+[Tenzie](https://tenzies-dani-camp.netlify.app/)
 
 ## How to Play
 

@@ -6,3 +6,4 @@ test-basics/*/node_modules/
 test-basics/*/package-lock.json
 /react-basics/build/
 react-basics/build/main.js
+test.py

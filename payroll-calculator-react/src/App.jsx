@@ -1,6 +1,13 @@
-import { useState, useEffect } from 'react'
-import './App.css'
-import EmployeesList from './EmployeesList'
+import { useState } from "react";
+import "./App.css";
+import EmployeesList from "./EmployeesList";
+import {
+  daysWorked,
+  daysActive,
+  calculateAge,
+  calculateSeverancePay,
+} from "./main";
+
 function App() {
   const employeesMock = [
     {
@@ -16,7 +23,7 @@ function App() {
       lastDate: "2023-10-01",
       daysActive: 600,
       severancePay: "-",
-      id: crypto.randomUUID()
+      id: crypto.randomUUID(),
     },
     {
       firstName: "Jane",
@@ -31,7 +38,7 @@ function App() {
       lastDate: "2023-04-15",
       daysActive: 700,
       severancePay: "2000.00",
-      id: crypto.randomUUID()
+      id: crypto.randomUUID(),
     },
     {
       firstName: "Alice",
@@ -46,7 +53,7 @@ function App() {
       lastDate: "2023-10-01",
       daysActive: 240,
       severancePay: "-",
-      id: crypto.randomUUID()
+      id: crypto.randomUUID(),
     },
     {
       firstName: "Bob",
@@ -61,28 +68,50 @@ function App() {
       lastDate: "2022-09-15",
       daysActive: 500,
       severancePay: "1500.00",
-      id: crypto.randomUUID()
-    }
+      id: crypto.randomUUID(),
+    },
   ];
 
-  const [employees, setEmployees] = useState(employeesMock)
-  // useEffect(()=>{
-  //   setEmployees(previous=>(
-  //     previous.map(employee=>{
-  //       return {
-  //         ...employee,
-  //         key: crypto.randomUUID()
-  //       }
-  //     })
-  //   ))
-  // },[])
+  const [employees, setEmployees] = useState(employeesMock);
+
+  function addEmployee(formData) {
+    setEmployees((prev) => [
+      ...prev,
+      {
+        firstName: formData.get("firstName"),
+        lastName: formData.get("lastName"),
+        birthday: calculateAge(formData.get("birthday")),
+        age: formData.get("age"),
+        salaryHour: formData.get("salaryPerHour"),
+        hoursWorked: formData.get("hoursWorked"),
+        daysWorked: daysWorked(formData.get("hoursWorked")),
+        startDate: formData.get("contractStartDate"),
+        active: formData.get("isActive"),
+        lastDate: formData.get("contractLastDate"),
+        daysActive: daysActive(
+          formData.get("contractStartDate"),
+          formData.get("contractLastDate"),
+          formData.get("isActive")
+        ),
+        severancePay: calculateSeverancePay(
+          formData.get("salaryPerHour"),
+          daysActive(
+            formData.get("contractStartDate"),
+            formData.get("contractLastDate"),
+            formData.get("isActive")
+          )
+        ),
+        id: crypto.randomUUID(),
+      },
+    ]);
+  }
 
   return (
     <main>
       <h1>Payroll Records</h1>
-      <section className='add-employee'>
+      <section className="add-employee">
         <h2>Add Employee</h2>
-        <form>
+        <form action={addEmployee}>
           <div>
             <label htmlFor="firstName" className="required-input">
               First Name:
@@ -104,25 +133,45 @@ function App() {
           <div>
             <label htmlFor="salaryPerHour" className="required-input">
               Salary per Hour:
-              <input type="number" name="salaryPerHour" id="salaryPerHour" step="0.01" required />
+              <input
+                type="number"
+                name="salaryPerHour"
+                id="salaryPerHour"
+                step="0.01"
+                required
+              />
             </label>
           </div>
           <div>
             <label htmlFor="hoursWorked" className="required-input">
               Hours Worked:
-              <input type="number" name="hoursWorked" id="hoursWorked" required />
+              <input
+                type="number"
+                name="hoursWorked"
+                id="hoursWorked"
+                required
+              />
             </label>
           </div>
           <div>
             <label htmlFor="contractStartDate" className="required-input">
               Contract Start Date:
-              <input type="date" name="contractStartDate" id="contractStartDate" required />
+              <input
+                type="date"
+                name="contractStartDate"
+                id="contractStartDate"
+                required
+              />
             </label>
           </div>
           <div>
             <label htmlFor="contractLastDate">
               Contract Last Date:
-              <input type="date" name="contractLastDate" id="contractLastDate" />
+              <input
+                type="date"
+                name="contractLastDate"
+                id="contractLastDate"
+              />
             </label>
           </div>
           <div>
@@ -132,14 +181,16 @@ function App() {
             </label>
           </div>
           <div>
-            <button type='subdmit'>Add Employee</button>
+            <button type="submit">Add Employee</button>
           </div>
         </form>
-        <p id="note">Fields marked with <span id="required-field">*</span> are required</p>
+        <p id="note">
+          Fields marked with <span id="required-field">*</span> are required
+        </p>
       </section>
-      <EmployeesList employees={employees}/>
+      <EmployeesList employees={employees} />
     </main>
-  )
+  );
 }
 
-export default App
+export default App;

@@ -1,4 +1,3 @@
-
 export default function EmployeesList(props) {
   const employees = props.employees.map((employee) => (
     <tr key={employee.id}>
@@ -10,7 +9,7 @@ export default function EmployeesList(props) {
       <td>{employee.hoursWorked}</td>
       <td>{employee.daysWorked}</td>
       <td>{employee.startDate}</td>
-      <td>{employee.active}</td>
+      <td>{employee.active ? "yes" : "no"}</td>
       <td>{employee.lastDate}</td>
       <td>{employee.daysActive}</td>
       <td>{employee.severancePay}</td>

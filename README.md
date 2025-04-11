@@ -164,7 +164,7 @@ An npm package aimed to help formatting dates into a more human-friendly way.
 
 ### Preview
 
-
+![image](https://github.com/user-attachments/assets/40c95c04-40c4-476c-8a04-c98d61552b92)
 
 ### Link to Demo
 

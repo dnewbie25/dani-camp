@@ -104,7 +104,7 @@ function daysWorked(hours) {
  * @returns {number} Number of days active
  */
 function daysActive(startDate, lastDate, isActive) {
-  const endDate = isActive === 'yes' ? new Date() : new Date(lastDate);
+  const endDate = isActive ? new Date() : new Date(lastDate);
   const milliseconds = Math.abs(endDate - new Date(startDate));
   const days = Math.floor(milliseconds / (1000 * 60 * 60 * 24));
   return days;

@@ -157,3 +157,16 @@ An npm package aimed to help formatting dates into a more human-friendly way.
 
 [Meme Generator](https://meme-generator-dani-camp.netlify.app/)
 </details>
+
+## Project 12: Payroll Calculator, rebuilt with React
+<details>
+<summary>Check out the details</summary>
+
+### Preview
+
+
+
+### Link to Demo
+
+[Payroll Calculator](https://payroll-calculator-react.netlify.app/)
+</details>

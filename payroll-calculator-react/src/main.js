@@ -19,6 +19,7 @@ function daysWorked(hours) {
   return timeString.trim();
 }
 
+
 /**
  * Calculates the number of days active for an employee.
  * @param {string} startDate - Contract start date in format 'YYYY-MM-DD'
@@ -27,12 +28,12 @@ function daysWorked(hours) {
  * @returns {number} Number of days active
  */
 function daysActive(startDate, lastDate, isActive) {
-  const endDate = isActive === 'yes' ? new Date() : new Date(lastDate);
-  const milliseconds = Math.abs(endDate - new Date(startDate));
-  const days = Math.floor(milliseconds / (1000 * 60 * 60 * 24));
-  return days;
+  const start = new Date(startDate);
+  const end = isActive ? new Date() : lastDate ? new Date(lastDate) : new Date();
+  if (isNaN(start) || isNaN(end)) return 0; // Handle invalid dates
+  const milliseconds = Math.abs(end - start);
+  return Math.floor(milliseconds / (1000 * 60 * 60 * 24));
 }
-
 
 /**
  * Calculates a person's age from their birthday.

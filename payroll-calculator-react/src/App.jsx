@@ -19,7 +19,7 @@ function App() {
       hoursWorked: "160",
       daysWorked: "20 days",
       startDate: "2022-01-05",
-      active: "yes",
+      active: true,
       lastDate: "2023-10-01",
       daysActive: 600,
       severancePay: "-",
@@ -34,7 +34,7 @@ function App() {
       hoursWorked: "150",
       daysWorked: "18 days",
       startDate: "2021-05-10",
-      active: "no",
+      active: false,
       lastDate: "2023-04-15",
       daysActive: 700,
       severancePay: "2000.00",
@@ -49,7 +49,7 @@ function App() {
       hoursWorked: "140",
       daysWorked: "17 days",
       startDate: "2023-02-01",
-      active: "yes",
+      active: true,
       lastDate: "2023-10-01",
       daysActive: 240,
       severancePay: "-",
@@ -64,7 +64,7 @@ function App() {
       hoursWorked: "170",
       daysWorked: "21 days",
       startDate: "2020-11-20",
-      active: "no",
+      active: false,
       lastDate: "2022-09-15",
       daysActive: 500,
       severancePay: "1500.00",
@@ -74,33 +74,36 @@ function App() {
 
   const [employees, setEmployees] = useState(employeesMock);
 
+  /**
+   * Adds a new employee to the list, given the form data.
+   * @param {FormData} formData - The form data containing the employee information.
+   * @returns {undefined}
+   */
   function addEmployee(formData) {
+    const isActive = formData.get("isActive") === "on";
+    const startDate = formData.get("contractStartDate");
+    const lastDate = formData.get("contractLastDate") || null;
+    const hoursWorked = parseFloat(formData.get("hoursWorked")) || 0;
+    const salaryPerHour = parseFloat(formData.get("salaryPerHour")) || 0;
+
+    const activeDays = daysActive(startDate, lastDate, isActive);
+    const severance = isActive ? "-" : calculateSeverancePay(salaryPerHour, activeDays);
+
     setEmployees((prev) => [
       ...prev,
       {
         firstName: formData.get("firstName"),
         lastName: formData.get("lastName"),
-        birthday: calculateAge(formData.get("birthday")),
-        age: formData.get("age"),
-        salaryHour: formData.get("salaryPerHour"),
-        hoursWorked: formData.get("hoursWorked"),
-        daysWorked: daysWorked(formData.get("hoursWorked")),
-        startDate: formData.get("contractStartDate"),
-        active: formData.get("isActive"),
-        lastDate: formData.get("contractLastDate"),
-        daysActive: daysActive(
-          formData.get("contractStartDate"),
-          formData.get("contractLastDate"),
-          formData.get("isActive")
-        ),
-        severancePay: calculateSeverancePay(
-          formData.get("salaryPerHour"),
-          daysActive(
-            formData.get("contractStartDate"),
-            formData.get("contractLastDate"),
-            formData.get("isActive")
-          )
-        ),
+        birthday: formData.get("birthday"),
+        age: calculateAge(formData.get("birthday")),
+        salaryHour: salaryPerHour.toFixed(2),
+        hoursWorked: hoursWorked.toFixed(2),
+        daysWorked: daysWorked(hoursWorked),
+        startDate,
+        active: isActive,
+        lastDate: isActive ? "-" : lastDate,
+        daysActive: activeDays,
+        severancePay: severance,
         id: crypto.randomUUID(),
       },
     ]);
@@ -127,7 +130,7 @@ function App() {
           <div>
             <label htmlFor="birthday" className="required-input">
               Birthday:
-              <input type="date" name="birthday" id="birthday" required />
+              <input type="date" name="birthday" id="birthday" min={new Date("1920-01-01")} required />
             </label>
           </div>
           <div>
@@ -177,7 +180,7 @@ function App() {
           <div>
             <label htmlFor="isActive">
               Active Employee:
-              <input type="checkbox" name="isActive" id="isActive" />
+              <input type="checkbox" name="isActive" id="isActive" onChange={e => (!e.target.checked)}/>
             </label>
           </div>
           <div>

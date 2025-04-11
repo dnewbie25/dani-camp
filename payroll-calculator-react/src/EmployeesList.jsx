@@ -11,7 +11,7 @@ export default function EmployeesList(props) {
       <td>{employee.startDate}</td>
       <td>{employee.active ? "yes" : "no"}</td>
       <td>{employee.lastDate}</td>
-      <td>{employee.daysActive}</td>
+      <td>{employee.daysActive || 0}</td>
       <td>{employee.severancePay}</td>
     </tr>
   ));

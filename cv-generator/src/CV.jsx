@@ -20,7 +20,11 @@ export default function CV(props) {
       <div id="experience">
         <h2>Experience</h2>
         <hr />
-        <Experience experiences={info.experience}/>
+        {/* <Experience experiences={info.experience}/> */}
+        <p>{info.jobTitle}</p>
+        <p>{info.startDate}</p>
+        <p>{info.endDate}</p>
+        <p>{info.functions}</p>
       </div>
     </section>
   );

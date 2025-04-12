@@ -10,16 +10,20 @@ function App() {
     phone: "123-456-9999",
     college: "University of Nowhere",
     program: "Computer Science",
-    isGraduated: true ,
+    isGraduated: true,
     graduationYear: 2019,
+    jobTitle: "Office worker",
+    startDate: "oct 2020",
+    endDate: "Present",
+    functions:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     experience: [
       {
         jobTitle: "Office worker",
-        startMonth: "Oct",
-        startYear: 2020,
-        endMonth: "Nov",
-        endYear: "Present",
-        functions: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        startDate: "oct 2020",
+        endDate: "Present",
+        functions:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       },
       {
         jobTitle: "Office worker",
@@ -27,14 +31,15 @@ function App() {
         startYear: 2020,
         endMonth: "Nov",
         endYear: 2023,
-        functions: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        functions:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       },
     ],
   });
 
   return (
     <main>
-      <Inputs input={information} setInput={setInformation}/>
+      <Inputs input={information} setInput={setInformation} />
       <CV information={information} />
     </main>
   );

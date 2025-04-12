@@ -22,7 +22,9 @@ export default function Inputs({ input, setInput }) {
         <fieldset id="education-information">
           <legend>Education</legend>
           <label htmlFor="university">University</label>
-          <input type="text" id="university" name="university" onChange={handleChange} />
+          <input type="text" id="university" name="college" onChange={handleChange} />
+          <label htmlFor="university">Program</label>
+          <input type="text" id="program" name="program" onChange={handleChange} />
           <label htmlFor="isGraduated">
             Graduated?
             <input type="checkbox" id="isGraduated" name="isGraduated" onChange={handleChange} />
@@ -45,6 +47,8 @@ export default function Inputs({ input, setInput }) {
           <input type="month" id="startDate" name="startDate" onChange={handleChange} />
           <label htmlFor="endDate">End Date</label>
           <input type="month" id="endDate" name="endDate" onChange={handleChange} />
+          <label htmlFor="functions">Responsibilities</label>
+          <input type="text" id="functions" name="functions" onChange={handleChange} />
         </fieldset>
       </form>
     </section>

@@ -105,3 +105,42 @@ main {
 
 /* CSS Style of inputs */
 
+.inputs{
+  background-color: rgb(47, 49, 54);
+  padding: 10px;
+  color: aliceblue;
+  font-size: 1.2rem;
+}
+
+#basic-information,
+#education-information,
+#experience{
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  justify-content: center;
+  vertical-align: middle;
+  padding: 20px;
+}
+
+legend{
+  font-size: 1.7rem;
+}
+
+fieldset{
+  border-color: #E0093C;
+
+}
+
+#education-information,
+#experience{
+  margin-top: 2rem;
+}
+input{
+  font-size: 1.5rem;
+}
+
+input#isGraduated{
+  width: 20px;
+  height: 20px;
+}

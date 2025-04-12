@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import CV from "./CV";
+import Inputs from "./Inputs";
 function App() {
   const [information, setInformation] = useState({
     firstName: "john",
@@ -33,7 +34,7 @@ function App() {
 
   return (
     <main>
-      <section className="inputs"></section>
+      <Inputs input={information} setInput={setInformation}/>
       <CV information={information} />
     </main>
   );

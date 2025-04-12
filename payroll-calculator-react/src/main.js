@@ -19,18 +19,27 @@ function daysWorked(hours) {
   return timeString.trim();
 }
 
-
 /**
  * Calculates the number of days active for an employee.
  * @param {string} startDate - Contract start date in format 'YYYY-MM-DD'
  * @param {string} lastDate - Contract last date in format 'YYYY-MM-DD' (optional)
- * @param {string} isActive - Boolean value indicating if the employee is active ('yes' or 'no')
- * @returns {number} Number of days active
+ * @param {boolean} isActive - Boolean value indicating if the employee is active
+ * @returns {number} Number of days active, or an alert if the dates are invalid
  */
 function daysActive(startDate, lastDate, isActive) {
   const start = new Date(startDate);
   const end = isActive ? new Date() : lastDate ? new Date(lastDate) : new Date();
-  if (isNaN(start) || isNaN(end)) return 0; // Handle invalid dates
+
+  if (isNaN(start) || isNaN(end)) {
+    alert("Invalid dates: Please provide valid contract dates.");
+    return 0;
+  }
+
+  if (start > end) {
+    alert("Invalid dates: The contract start date must be before the contract end date.");
+    return 0;
+  }
+
   const milliseconds = Math.abs(end - start);
   return Math.floor(milliseconds / (1000 * 60 * 60 * 24));
 }
@@ -38,17 +47,32 @@ function daysActive(startDate, lastDate, isActive) {
 /**
  * Calculates a person's age from their birthday.
  * @param {string} birthday - Birthday in format 'YYYY-MM-DD'
- * @returns {string} Age in years, or 'Invalid birthday' if the birthday is in the future
+ * @returns {string} Age in years, or an alert if the age is invalid
  */
 function calculateAge(birthday) {
   const currentDate = new Date();
   const birthdayDate = new Date(birthday);
-  const ageDifMs = currentDate - birthdayDate;
+  const ageDifMs = currentDate - birthdayDate; // the difference in milliseconds
+
   if (ageDifMs < 0) {
-    return 'Invalid birthday';
+    alert("Invalid birthday: The date is in the future.");
+    return "Invalid birthday";
   }
+
   const ageDate = new Date(ageDifMs);
-  return `${Math.abs(ageDate.getUTCFullYear() - 1970)} years old`;
+  const age = Math.abs(ageDate.getUTCFullYear() - 1970);
+
+  if (age < 18) {
+    alert("Invalid age: Employees must be at least 18 years old.");
+    return "Invalid age";
+  }
+
+  if (age > 122) {
+    alert("Invalid age: Employees cannot be older than 122 years.");
+    return "Invalid age";
+  }
+
+  return `${age} years old`;
 }
 
 /**
@@ -64,9 +88,29 @@ function calculateSeverancePay(salaryPerHour, daysActive) {
   return `$${severancePay.toFixed(2)}`;
 }
 
+/**
+ * Validates that the contract start date is after the 18th birthday.
+ * @param {string} birthday - Birthday in format 'YYYY-MM-DD'
+ * @param {string} startDate - Contract start date in format 'YYYY-MM-DD'
+ * @returns {boolean} True if valid, otherwise false with an alert
+ */
+function validateContractStartDate(birthday, startDate) {
+  const birthdayDate = new Date(birthday);
+  const eighteenthBirthday = new Date(birthdayDate.setFullYear(birthdayDate.getFullYear() + 18));
+  const start = new Date(startDate);
+
+  if (start < eighteenthBirthday) {
+    alert("Invalid contract start date: It must be after the employee's 18th birthday.");
+    return false;
+  }
+
+  return true;
+}
+
 export {
   daysWorked,
   daysActive,
   calculateAge,
   calculateSeverancePay,
-}
+  validateContractStartDate,
+};

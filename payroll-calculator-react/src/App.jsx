@@ -6,6 +6,7 @@ import {
   daysActive,
   calculateAge,
   calculateSeverancePay,
+  validateContractStartDate,
 } from "./main";
 
 function App() {
@@ -80,9 +81,28 @@ function App() {
    * @returns {undefined}
    */
   function addEmployee(formData) {
-    const isActive = formData.get("isActive") === "on";
+    const birthday = formData.get("birthday");
     const startDate = formData.get("contractStartDate");
     const lastDate = formData.get("contractLastDate") || null;
+    const isActive = formData.get("isActive") === "on";
+
+    // Validate age
+    const age = calculateAge(birthday);
+    if (age === "Invalid age" || age === "Invalid birthday") {
+      return;
+    }
+
+    // Validate contract start date
+    if (!validateContractStartDate(birthday, startDate)) {
+      return;
+    }
+
+    // Validate contract dates
+    if (lastDate && new Date(startDate) > new Date(lastDate)) {
+      alert("Invalid contract dates: Start date must be before the end date.");
+      return;
+    }
+
     const hoursWorked = parseFloat(formData.get("hoursWorked")) || 0;
     const salaryPerHour = parseFloat(formData.get("salaryPerHour")) || 0;
 
@@ -94,8 +114,8 @@ function App() {
       {
         firstName: formData.get("firstName"),
         lastName: formData.get("lastName"),
-        birthday: formData.get("birthday"),
-        age: calculateAge(formData.get("birthday")),
+        birthday,
+        age,
         salaryHour: salaryPerHour.toFixed(2),
         hoursWorked: hoursWorked.toFixed(2),
         daysWorked: daysWorked(hoursWorked),

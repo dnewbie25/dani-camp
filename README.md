@@ -170,3 +170,16 @@ An npm package aimed to help formatting dates into a more human-friendly way.
 
 [Payroll Calculator](https://payroll-calculator-react.netlify.app/)
 </details>
+
+## Project 13: CV Generator
+<details>
+<summary>Check out the details</summary>
+
+### Preview
+
+![image](https://github.com/user-attachments/assets/f5c02bae-167f-4d3b-aea1-941da37acc30)
+
+### Link to Demo
+
+[CV Generator](https://dani-cv-generator.netlify.app/)
+</details>

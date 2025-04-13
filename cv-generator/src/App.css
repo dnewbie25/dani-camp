@@ -70,26 +70,28 @@ main {
   text-transform: capitalize;
 }
 
-#education h2 {
+#education h2,
+#experience h2 {
   text-align: left;
   font-weight: bold;
 }
 
-#education div {
+#education div{
   display: flex;
   justify-content: space-between;
   gap: 10px;
   font-size: 1.2rem;
 }
 
-#experience h2,
-#experience p:first-child,
-#experience p:nth-child(2) {
+#experience{
   text-align: left;
+}
+
+#experience h2{
   font-weight: bold;
 }
 
-#experience div div {
+#experience div{
   display: grid;
   grid-template-columns: 1fr 1fr;
   justify-content: space-between;
@@ -98,7 +100,8 @@ main {
   margin-bottom: 1rem;
 }
 
-#experience div div p:nth-child(3) {
+#functions {
+  margin-top: 20px;
   grid-column: span 2;
 }
 
@@ -114,7 +117,7 @@ main {
 
 #basic-information,
 #education-information,
-#experience{
+#experience-input{
   display: flex;
   flex-direction: column;
   text-align: left;
@@ -133,7 +136,7 @@ fieldset{
 }
 
 #education-information,
-#experience{
+#experience-input{
   margin-top: 2rem;
 }
 input{

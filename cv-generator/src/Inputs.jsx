@@ -39,7 +39,7 @@ export default function Inputs({ input, setInput }) {
           />
         </fieldset>
 
-        <fieldset id="experience">
+        <fieldset id="experience-input">
           <legend>Experience</legend>
           <label htmlFor="jobTitle">Job Title</label>
           <input type="text" id="jobTitle" name="jobTitle" onChange={handleChange} />

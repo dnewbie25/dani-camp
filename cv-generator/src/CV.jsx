@@ -1,6 +1,12 @@
 import Experience from "./Experience";
 export default function CV(props) {
   const info = props.information;
+  const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  let startDate = info.startDate ? info.startDate.split("-") : ["", ""];
+  startDate = startDate[1] ? months[+startDate[1] - 1] + " " + startDate[0] : "N/A";
+
+  let endDate = info.endDate ? info.endDate.split("-") : ["", ""];
+  endDate = endDate[1] ? months[+endDate[1] - 1] + " " + endDate[0] : "Present";
   return (
     <section className="result">
       <div id="contact-info">
@@ -21,10 +27,11 @@ export default function CV(props) {
         <h2>Experience</h2>
         <hr />
         {/* <Experience experiences={info.experience}/> */}
-        <p>{info.jobTitle}</p>
-        <p>{info.startDate}</p>
-        <p>{info.endDate}</p>
-        <p>{info.functions}</p>
+        <div>
+          <p>{info.jobTitle}</p>
+          <p>{startDate} - {endDate}</p>
+          <p id="functions">{info.functions}</p>
+        </div>
       </div>
     </section>
   );

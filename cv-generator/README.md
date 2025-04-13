@@ -2,6 +2,10 @@
 
 The CV Generator is a React-based web application that allows users to input their personal, educational, and professional information to generate a formatted CV. The application provides a user-friendly interface for entering details and displays the CV in a structured format.
 
+## Live Site
+
+[CV Generator](https://dani-cv-generator.netlify.app/)
+
 ## Features
 
 - Input fields for personal information, education, and work experience.

@@ -1,0 +1,64 @@
+/* CSS Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: Arial, sans-serif;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* CSS Styles */
+body{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  background-color: rgb(12, 12, 57);
+}
+
+#game-area{
+  max-width: 800px;
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+img{
+  width: 150px;
+  height: 200px;
+  cursor: pointer;
+}
+
+img:hover{
+  border: 3px solid greenyellow;
+}

@@ -1,12 +1,44 @@
-# React + Vite
+# Memory Card Game
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The Memory Card Game is a fun and interactive game where players test their memory by selecting unique cards without repeating any. The goal is to achieve the highest score possible by remembering which cards have already been selected.
 
-Currently, two official plugins are available:
+## Preview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Link
 
-## Expanding the ESLint configuration
+## How to Use the App
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. **Start the Game**:
+   - Open the app in your browser. The game will display a grid of cards.
+
+2. **Select Cards**:
+   - Click on a card to select it. Each unique card you select will increase your score by 1.
+
+3. **Avoid Duplicates**:
+   - If you select a card that has already been selected, your score will reset to 0, and the game will restart.
+
+4. **Track Your Progress**:
+   - The app displays your current score and your highest score so far.
+
+5. **Challenge Yourself**:
+   - The cards shuffle randomly after each selection, making it more challenging to remember which cards you've already picked.
+
+## Technologies Used
+
+- **React**: For building the user interface and managing the state of the game.
+- **JavaScript**: For implementing game logic and interactivity.
+- **CSS**: For styling the app and creating a visually appealing layout.
+- **Rick and Morty API**: For fetching character images to use as cards in the game. https://rickandmortyapi.com/
+
+## Key Features
+
+- **Dynamic Card Rendering**:
+  - The app fetches character images from the Rick and Morty API and displays them as cards.
+
+- **Randomized Card Order**:
+  - The cards shuffle after each selection to increase the difficulty.
+
+- **Score Tracking**:
+  - The app keeps track of the current score and the highest score achieved during the session.
+
+## 

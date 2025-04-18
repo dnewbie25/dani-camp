@@ -3,7 +3,7 @@ export async function getImages(){
     const url = await fetch("https://rickandmortyapi.com/api/character");
     const urlResult = await url.json()
     const result = urlResult.results
-    return result.slice(10)
+    return result.slice(0,20)
   }catch{
     return new Error("No characters found")
   }

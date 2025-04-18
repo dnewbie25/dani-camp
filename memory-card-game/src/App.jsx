@@ -19,6 +19,10 @@ function App() {
     <Image url={img.image} name={img.name} key={img.id}/>
   ))
 
+  function render10Images(){
+    return imagesInfo.sort(() => Math.random() - 0.5).slice(0, 10);
+  }
+
   return (
     <main>
       <header>
@@ -27,7 +31,7 @@ function App() {
         <p>Highest Score: {highestScore}</p>
       </header>
       <section id="game-area">
-        {imagesInfo}
+        {render10Images()}
       </section>
     </main>
   )

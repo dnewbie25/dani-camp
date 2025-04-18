@@ -1,5 +1,5 @@
 export default function Image(props){
   return (
-    <img src={props.url} alt={props.name} />
+    <img src={props.url} alt={props.name} onClick={props.click}/>
   )
 }

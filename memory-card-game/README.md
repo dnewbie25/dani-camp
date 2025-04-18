@@ -4,7 +4,12 @@ The Memory Card Game is a fun and interactive game where players test their memo
 
 ## Preview
 
+![image](https://github.com/user-attachments/assets/c945808a-e40c-449e-8a75-788429874657)
+
+
 ## Link
+
+[Memory Card Game](https://rick-and-mort-memory-card-game.netlify.app/)
 
 ## How to Use the App
 

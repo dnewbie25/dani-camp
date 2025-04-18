@@ -183,3 +183,16 @@ An npm package aimed to help formatting dates into a more human-friendly way.
 
 [CV Generator](https://dani-cv-generator.netlify.app/)
 </details>
+
+## Project 14: Memory Card Game
+<details>
+<summary>Check out the details</summary>
+
+### Preview
+
+![image](https://github.com/user-attachments/assets/5de92c33-5841-46f5-b158-0dc4a35fc4a5)
+
+### Link to Demo
+
+[Memory Card Game](https://rick-and-mort-memory-card-game.netlify.app/)
+</details>

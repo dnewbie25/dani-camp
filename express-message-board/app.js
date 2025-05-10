@@ -40,7 +40,7 @@ app.get("/new",(req, res)=>{
 // add new message
 
 app.post("/new", (req, res)=>{
-  console.log(req.body);
+  // console.log(req.body);
 
   messages.push({
     text:req.body.text,

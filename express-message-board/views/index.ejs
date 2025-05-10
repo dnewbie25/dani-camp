@@ -1,0 +1,15 @@
+<html>
+  <!-- <head>
+    <link rel="stylesheet" href="/style.css">
+  </head> -->
+  
+  <body>
+    <%= title%>
+    <ul>
+      <% messages.forEach((message) => { %>
+        <li><%- `${message.text}, i am ${message.name} - ${message.added}` %></li>
+      <% }); %>
+    </ul>
+    
+  </body>
+</html>

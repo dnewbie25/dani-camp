@@ -1,3 +1,8 @@
+/**
+ * Makes a POST request to the server to get a recipe based on the given ingredients.
+ * @param {Object} ingredients - An object with a single property, 'ingredients', which is an array of strings.
+ * @return {Promise<string>} A promise which resolves to the recipe text if the request is successful, or an empty string if the request is not successful.
+ */
 export async function getRecipeFromServer(ingredients) {
   const response = await fetch('http://66.33.207.84:8000/recipe', {
     method: 'POST',
@@ -8,14 +13,8 @@ export async function getRecipeFromServer(ingredients) {
     body: JSON.stringify(ingredients)
   })
   if (!response.ok) {
-    console.log(response);
-
-    console.log("esto anda fallando");
     return
   }
   const json = await response.json();
-  console.log(json);
-
+  return json[0].text || ""
 }
-
-getRecipeFromServer({ "ingredients": ["tomatoe", "bread", "lettuce", "peas"] })

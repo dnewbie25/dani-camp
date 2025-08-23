@@ -1,0 +1,6 @@
+POST http://aichef.dreamhosters.com:8000/recipe
+content-type: application/json
+
+{
+    "ingredients": ["tomatoe","carrot","beef","onion"]
+}

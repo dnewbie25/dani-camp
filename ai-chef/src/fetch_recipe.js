@@ -4,16 +4,16 @@
  * @return {Promise<string>} A promise which resolves to the recipe text if the request is successful, or an empty string if the request is not successful.
  */
 export async function getRecipeFromServer(ingredients) {
-  const response = await fetch('http://aichef.dreamhosters.com:8000/recipe', {
+
+  const response = await fetch('https://claude-chef-api.onrender.com/recipe', {
     method: 'POST',
     headers: {
       "Content-Type": "application/json",
-      "Access-Control-Allow-Origin": "*",
     },
     body: JSON.stringify(ingredients)
   })
   if (!response.ok) {
-    return
+    return response.status
   }
   const json = await response.json();
   return json[0].text || ""

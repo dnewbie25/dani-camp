@@ -122,3 +122,8 @@ ul.ingredients-list > li {
 .suggested-recipe-container ol li {
   margin-bottom: 8px;
 }
+
+#spinner {
+  display: flex;
+  justify-content: center;
+}

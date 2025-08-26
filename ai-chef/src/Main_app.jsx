@@ -2,10 +2,11 @@ import { useState } from "react";
 import IngredientsList from "./components/IngredientsList";
 import ClaudeRecipe from "./components/ClaudeRecipe";
 import { getRecipeFromServer } from "./fetch_recipe";
+import { ColorRing } from "react-loader-spinner";
 
 export default function Main_app() {
   const [ingredients, setIngredients] = useState([]);
-
+  const [spinner, setSpinner] = useState(false);
   const [recipe, setRecipe] = useState("");
 
   /**
@@ -14,10 +15,12 @@ export default function Main_app() {
    * @returns {Promise<void>}
    */
   async function handleRecipe() {
+    setSpinner(true);
     const recipeResult = await getRecipeFromServer({
       ingredients: ingredients,
     });
     setRecipe(recipeResult);
+    setSpinner(false);
   }
   /**
    * Handles the submission of the add ingredient form.
@@ -61,7 +64,23 @@ export default function Main_app() {
         <section>
           <h2>Ingredients on hand:</h2>
           <IngredientsList ingredients={ingredients} getRecipe={handleRecipe} />
-          {recipe && <ClaudeRecipe recipe={recipe} />}
+
+          {!spinner ? (
+            <ClaudeRecipe recipe={recipe} spinner={setSpinner} />
+          ) : (
+            <div id="spinner">
+              <ColorRing
+                visible={true}
+                height="80"
+                width="80"
+                ariaLabel="color-ring-loading"
+                wrapperStyle={{}}
+                wrapperClass="color-ring-wrapper"
+                colors={["#e15b64", "#f47e60", "#f8b26a", "#abbd81", "#849b87"]}
+                id="spinner"
+              />
+            </div>
+          )}
         </section>
       )}
     </main>

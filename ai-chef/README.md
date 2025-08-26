@@ -2,6 +2,10 @@
 
 AI Chef is a simple and fun React application that helps you discover new recipes based on the ingredients you have on hand. Just list your ingredients, and our AI-powered chef will suggest a creative, markdown-formatted recipe for you to try!
 
+## Live site
+
+[my-ai-chef.netlify.app](https://my-ai-chef.netlify.app/)
+
 ## How To Use
 
 1.  **Start the application**: Make sure you have the frontend running (e.g., with `npm run dev`) and the FastAPI server is active.
@@ -27,6 +31,8 @@ The application communicates with a custom-built FastAPI backend to generate the
   ```
 - **Response:**
   - Returns a markdown-formatted recipe suggestion using some or all of the provided ingredients.
+- **API Repository**:
+  - [claude-chef-api](https://github.com/dnewbie25/claude-chef-api/tree/master)
 
 ## Technologies Used
 
@@ -35,5 +41,7 @@ The application communicates with a custom-built FastAPI backend to generate the
   - [Vite](https://vitejs.dev/)
 - **Markdown Rendering**:
   - [react-markdown](https://github.com/remarkjs/react-markdown): A great package for rendering markdown content directly in React components, ensuring the recipes are displayed beautifully.
+- **Animation**:
+  - [react-loader-spinner](https://github.com/mhnpd/react-loader-spinner): This is the package used for the loading spinner when the fetch is working.
 - **Backend**:
   - [FastAPI](https://fastapi.tiangolo.com/)

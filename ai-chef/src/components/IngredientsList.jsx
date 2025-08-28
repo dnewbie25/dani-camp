@@ -1,7 +1,29 @@
-export default function IngredientsList(props){
-  const ingredientsListItems = props.ingredients.map(item=>(
-    <li key={item}>{item}</li>
-  ))
+import Ingredient from "./Ingredient";
+export default function IngredientsList(props) {
+  let ingredientsListItems = props.ingredients.map((item) => {
+    return (
+      <Ingredient
+        key={item}
+        ingredient={item}
+        id={item}
+        modifyIngredient={props.modifyIngredient}
+      />
+    );
+  });
+  // function editIngredient(ingredient) {
+  //   ingredientsListItems = ingredientsListItems.map((item) => {
+  //     if (item === ingredient) {
+  //       <Ingredient
+  //         key={item}
+  //         ingredient={item}
+  //         id={item}
+  //         modifyIngredient={props.modifyIngredient}
+  //         editable={true}
+  //         editIngredient={editIngredient}
+  //       />;
+  //     }
+  //   });
+  // }
 
   return (
     <>
@@ -18,5 +40,5 @@ export default function IngredientsList(props){
         </div>
       )}
     </>
-  )
+  );
 }

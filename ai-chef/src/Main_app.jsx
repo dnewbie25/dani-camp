@@ -5,7 +5,13 @@ import { getRecipeFromServer } from "./fetch_recipe";
 import { ColorRing } from "react-loader-spinner";
 
 export default function Main_app() {
-  const [ingredients, setIngredients] = useState([]);
+  const [ingredients, setIngredients] = useState([
+    "pasta",
+    "garlic",
+    "tomatoe",
+    "peas",
+    "lemon",
+  ]);
   const [spinner, setSpinner] = useState(false);
   const [recipe, setRecipe] = useState("");
 
@@ -30,6 +36,8 @@ export default function Main_app() {
     const newIngredient = formData.get("ingredient");
     setIngredients((previousList) => [...previousList, newIngredient]);
   }
+
+  console.log(ingredients);
 
   return (
     <main>
@@ -63,7 +71,11 @@ export default function Main_app() {
       {ingredients.length > 0 && (
         <section>
           <h2>Ingredients on hand:</h2>
-          <IngredientsList ingredients={ingredients} getRecipe={handleRecipe} />
+          <IngredientsList
+            ingredients={ingredients}
+            getRecipe={handleRecipe}
+            modifyIngredient={setIngredients}
+          />
 
           {!spinner ? (
             <ClaudeRecipe recipe={recipe} spinner={setSpinner} />

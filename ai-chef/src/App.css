@@ -127,3 +127,20 @@ ul.ingredients-list > li {
   display: flex;
   justify-content: center;
 }
+
+.ingredient {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  & button {
+    padding: 0.2rem 0.5rem;
+    &:hover {
+      background-color: #d17557;
+    }
+    &:active {
+      background-color: #475467;
+    }
+  }
+}

@@ -5,13 +5,7 @@ import { getRecipeFromServer } from "./fetch_recipe";
 import { ColorRing } from "react-loader-spinner";
 
 export default function Main_app() {
-  const [ingredients, setIngredients] = useState([
-    "pasta",
-    "garlic",
-    "tomatoe",
-    "peas",
-    "lemon",
-  ]);
+  const [ingredients, setIngredients] = useState([]);
   const [spinner, setSpinner] = useState(false);
   const [recipe, setRecipe] = useState("");
 
@@ -23,7 +17,7 @@ export default function Main_app() {
   async function handleRecipe() {
     setSpinner(true);
     const recipeResult = await getRecipeFromServer({
-      ingredients: ingredients,
+      ingredients: ingredients.map((item) => item.ingredient),
     });
     setRecipe(recipeResult);
     setSpinner(false);
@@ -34,10 +28,11 @@ export default function Main_app() {
    */
   function handleSubmit(formData) {
     const newIngredient = formData.get("ingredient");
-    setIngredients((previousList) => [...previousList, newIngredient]);
+    setIngredients((previousList) => [
+      ...previousList,
+      { ingredient: newIngredient, id: crypto.randomUUID() },
+    ]);
   }
-
-  console.log(ingredients);
 
   return (
     <main>

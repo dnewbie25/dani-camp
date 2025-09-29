@@ -1,29 +1,16 @@
 import Ingredient from "./Ingredient";
+
 export default function IngredientsList(props) {
   let ingredientsListItems = props.ingredients.map((item) => {
     return (
       <Ingredient
-        key={item}
-        ingredient={item}
-        id={item}
+        key={item.id}
+        ingredient={item.ingredient}
+        id={item.id}
         modifyIngredient={props.modifyIngredient}
       />
     );
   });
-  // function editIngredient(ingredient) {
-  //   ingredientsListItems = ingredientsListItems.map((item) => {
-  //     if (item === ingredient) {
-  //       <Ingredient
-  //         key={item}
-  //         ingredient={item}
-  //         id={item}
-  //         modifyIngredient={props.modifyIngredient}
-  //         editable={true}
-  //         editIngredient={editIngredient}
-  //       />;
-  //     }
-  //   });
-  // }
 
   return (
     <>

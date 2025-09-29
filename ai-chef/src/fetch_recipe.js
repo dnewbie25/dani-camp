@@ -13,7 +13,7 @@ export async function getRecipeFromServer(ingredients) {
     body: JSON.stringify(ingredients)
   })
   if (!response.ok) {
-    return response.status
+    return `Sorry, there was an error getting your recipe. Status: ${response.status}`
   }
   const json = await response.json();
   return json[0].text || ""
